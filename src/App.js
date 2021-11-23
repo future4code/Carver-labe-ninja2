@@ -1,4 +1,7 @@
 import React from 'react'
+import { AppContainer } from './components/AppContainer'
+import SerUmNinja from './components/SerUmNinja'
+
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Header from './components/Header'
