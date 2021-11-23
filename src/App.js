@@ -6,21 +6,23 @@ import Home from './components/Home';
 
 const GlobalStyle = createGlobalStyle`
   body {
-    margin: 0;
-    padding: 0;
 	box-sizing: border-box;
   }
 
-  p {
-    margin: 0;
-  }
+   *{
+	margin: 0;
+    padding: 0
+   }
 `
+
 
 class App extends React.Component{
 	render(){
 		return(
 			<div>
 				<GlobalStyle/>
+				{/* <Header/>
+				<Home/> */}
 			</div>
 		)
 	}
