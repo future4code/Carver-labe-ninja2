@@ -30,7 +30,7 @@ const Card = styled.div`
   height: 20vh;
   border: 1px solid black;
   grid-auto-flow: row;
-  border: 1px solid red;
+  border: 1px solid blue;
 `;
 
 export default class SecaoContratar extends React.Component {
