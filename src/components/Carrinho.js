@@ -28,6 +28,7 @@ button{
 `
 
 export default class Carrinho extends Component {
+
  
 
   
@@ -36,6 +37,8 @@ export default class Carrinho extends Component {
     this.props.trocarPaginaCarrinho()
    this.props.atualizarCarrinho([])
   }
+
+
 
   removerItem=(id)=>{
 		const carrinhoSemItem= this.props.statusCarrinho.produtos.filter((item)=>{
@@ -62,14 +65,16 @@ export default class Carrinho extends Component {
     })
     let resultado=<CarrinhoTotal>
       <p>{`Total: R$${valorResultante}`}</p>
-      <button onClick={this.finalizarCompra}>Finalizar Compra</button>
-      <button onClick={}>Voltar Para Lista</button>
+      <button>Finalizar Compra</button>
+      <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Voltar Para Lista</button>
       </CarrinhoTotal>
    
     return (
       <div>
+
       {this.props.carrinho.produtos.length>0? itens  : <h1>Carrinho</h1> }
       {this.props.carrinho.produtos.length>0? resultado : ' ' }
+
 
       </div>
     )

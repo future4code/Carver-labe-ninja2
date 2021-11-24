@@ -4,19 +4,27 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Header from './components/Header'
 import Home from './components/Home';
+
 import Carrinho  from './components/Carrinho';
 import SecaoContratar from "./components/SecaoContratar/SecaoContratar"
 import axios from 'axios';
+
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
     padding: 0;
 	box-sizing: border-box;
+
+	button{
+		&:hover{
+			cursor: pointer;
+		}
+	}
    }
 `
 
 
-class App extends React.Component{
+class App extends React.Component {
 	state = {
 		tela: "home",
 		anuncios: [
@@ -26,12 +34,12 @@ class App extends React.Component{
 				description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
 				price: 40,
 				paymentMethods: [
-				  "PayPal",
-				  "boleto"
+					"PayPal",
+					"boleto"
 				],
 				dueDate: "2021-12-30T00:00:00.000Z",
 				taken: false
-			  }
+			}
 		],
 		carrinho: {
 			valoTotal:0,
