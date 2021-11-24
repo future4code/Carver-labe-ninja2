@@ -4,6 +4,7 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Header from './components/Header'
 import Home from './components/Home';
+import {atualizarServicos, deletarServico, getServicoPorId, getServicos, postServicos} from './Servicos/Api'
 import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
 
@@ -20,7 +21,7 @@ const GlobalStyle = createGlobalStyle`
 	}
    }
 `
-
+const idTeste = "0ac620a5-af40-4f3d-afc2-acecc7f4e8ba"
 
 class App extends React.Component {
 	state = {
@@ -53,6 +54,42 @@ class App extends React.Component {
 				"taken": false
 			}
 		]
+	}
+
+	componentDidMount = () => {
+		//this.carregarJobs()
+		//this.atualizarJobs()
+		//this.pegarJob()
+		//this.deletarJobs()
+		//this.criarJobs()
+	}
+
+	carregarJobs = () =>{
+		getServicos()
+	}
+
+	pegarJob = (id) => {
+		getServicoPorId(id)
+	}
+
+	criarJobs = () =>{
+		let body = {
+			"title":"Babá",
+			"description":"Cuidar de crianças de 6 meses até 10 anos",
+			"price":500,
+			"paymentMethods":["PayPal", "boleto"],
+			"dueDate":"2021-12-30"
+		}
+
+		postServicos(body)
+	}
+
+	atualizarJobs = (boleano, id) => {
+		atualizarServicos(boleano,id)
+	}
+
+	deletarJobs = (id) => {
+		deletarServico(id)
 	}
 
 	trocarDeTela = () => {
