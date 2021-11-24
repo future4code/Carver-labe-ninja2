@@ -67,7 +67,7 @@ export default class Carrinho extends Component {
     let resultado=<CarrinhoTotal>
       <p>{`Total: R$${valorResultante}`}</p>
       <button>Finalizar Compra</button>
-      <button>Voltar Para Lista</button>
+      <button onClick={() => this.props.invocarTela("contratarUmNinja")}mm>Voltar Para Lista</button>
       </CarrinhoTotal>
     return (
       <div>
