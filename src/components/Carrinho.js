@@ -1,15 +1,7 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const StyledHeader=styled.header`
-*{
-  margin:0;
-  padding: 0;
-}
-padding: 1%;
-height:6%;
-background-color: grey;
-`
+
 const ItemCarrinho=styled.div` 
 border: 1px solid black;
 display: flex;
@@ -35,53 +27,49 @@ button{
 }
 `
 
-export class Carrinho extends Component {
-  state={
-    carrinho:[
-      {
-        nome:"tst",
-        preço:200,
-      },
-        {
-        nome:"tst",
-        preço:200,
-      },
-        {
-        nome:"tst",
-        preço:200,
-      },
-        {
-        nome:"tst",
-        preço:900,
-      },
-  ], 
-  total:0
+export default class Carrinho extends Component {
+ 
+
+  
+	finalizarCompra=()=>{
+    alert("obrigada por comprar com a gente!!!!!!!")
+    this.props.trocarPaginaCarrinho()
+   this.props.atualizarCarrinho([])
   }
+
+  removerItem=(id)=>{
+		const carrinhoSemItem= this.props.statusCarrinho.produtos.filter((item)=>{
+			return item.id!==id 
+		})
+
+    this.props.atualizarCarrinho(carrinhoSemItem)
+	}
+
   render() {
     let soma=0
-    let valorTotal = this.state.carrinho.map((valor) => {
-      soma = valor.preço + soma
+    let valorTotal = this.props.carrinho.produtos.map((valor) => {
+      soma = valor.price + soma
       return soma
     })
     let valorResultante=valorTotal.pop()
-    console.log(valorTotal,valorResultante)
-    let itens=this.state.carrinho.map((item)=>{
+    let itens=this.props.carrinho.produtos.map((item)=>{
+      console.log(item)
       return  <ItemCarrinho>
-        <p>{item.nome}</p>
-        <p>{`R$${item.preço} `}</p>
-        <button>Remover</button>
+        <p>{item.title}</p>
+        <p>{`R$${item.price} `}</p>
+        <button onClick={()=>this.removerItem(item.id)}>Remover</button>
       </ItemCarrinho>
     })
     let resultado=<CarrinhoTotal>
       <p>{`Total: R$${valorResultante}`}</p>
-      <button>Finalizar Compra</button>
-      <button>Voltar Para Lista</button>
+      <button onClick={this.finalizarCompra}>Finalizar Compra</button>
+      <button onClick={}>Voltar Para Lista</button>
       </CarrinhoTotal>
+   
     return (
       <div>
-        <StyledHeader><h1>Labeninjas</h1></StyledHeader>
-      {this.state.carrinho.length>0? itens  : <h1>Carrinho</h1> }
-      {this.state.carrinho.length>0? resultado : ' ' }
+      {this.props.carrinho.produtos.length>0? itens  : <h1>Carrinho</h1> }
+      {this.props.carrinho.produtos.length>0? resultado : ' ' }
 
       </div>
     )
