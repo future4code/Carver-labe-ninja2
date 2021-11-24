@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
 
-const StyledHeader=styled.header`
-*{
-  margin:0;
-  padding: 0;
-}
-padding: 1%;
-height:6%;
-background-color: grey;
-`
+// const StyledHeader=styled.header`
+// *{
+//   margin:0;
+//   padding: 0;
+// }
+// padding: 1%;
+// height:6%;
+// background-color: grey;
+// `
 const ItemCarrinho=styled.div` 
 border: 1px solid black;
 display: flex;
@@ -35,7 +35,7 @@ button{
 }
 `
 
-export class Carrinho extends Component {
+export default class Carrinho extends Component {
   state={
     carrinho:[
       {
@@ -79,7 +79,7 @@ export class Carrinho extends Component {
       </CarrinhoTotal>
     return (
       <div>
-        <StyledHeader><h1>Labeninjas</h1></StyledHeader>
+        {/* <StyledHeader><h1>Labeninjas</h1></StyledHeader> */}
       {this.state.carrinho.length>0? itens  : <h1>Carrinho</h1> }
       {this.state.carrinho.length>0? resultado : ' ' }
 
