@@ -46,16 +46,34 @@ const ContainerBotoes = styled.div`
     `
 
 class DetalhesServicos extends React.Component {
+
+    // Adicionar requisição de Get Job By ID utilizando o id do serviço recebido via props.
+
+    // Exemplo de resposta da requisição:
+    detalhesServicos = {
+            title:"Cortar a grama",
+            description:"Manutenção em áreas verdes de até 1000 metros quadrados.",
+            price:40,
+            paymentMethods:["PayPal", "boleto"],
+            dueDate:"2021-12-30"
+    }
+
+    organizarData = () => {
+        const partesData = this.detalhesServicos.dueDate.split("-")
+        const novaData = `${partesData[2]}/${partesData[1]}/${partesData[0]}`
+        return novaData;
+    }
+
     render() {
         return (
             <ContainerDetalhes>
                 <ContainerInfoServico>
                     <ContainerTitulo>
-                        <h3>Título do serviço</h3>
-                        <p>Lavo todas as louças em menos de 5min.</p>
+                        <h3>{this.detalhesServicos.title}</h3>
+                        <p>{this.detalhesServicos.description}</p>
                     </ContainerTitulo>
-                    <p>Aceita: Cartão de crédito, Pix</p>
-                    <p>Até 04/12/1991 por <strong>R$ 99.00</strong></p>
+                    <p>Aceita: {this.detalhesServicos.paymentMethods.join([', '])}.</p>
+                    <p>Até {this.organizarData()} por <strong>R$ {this.detalhesServicos.price}</strong>.</p>
 
                     <ContainerBotoes>
                         <button>Adicionar ao carrinho</button>

@@ -1,22 +1,29 @@
 import React from 'react'
-
 import SerUmNinja from './components/SerUmNinja'
 import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Header from './components/Header'
 import Home from './components/Home';
 import {atualizarServicos, deletarServico, getServicoPorId, getServicos, postServicos} from './Servicos/Api'
+import SecaoContratar from './components/SecaoContratar/SecaoContratar'
+import Carrinho from './components/Carrinho'
 
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
     padding: 0;
 	box-sizing: border-box;
+
+	button{
+		&:hover{
+			cursor: pointer;
+		}
+	}
    }
 `
 const idTeste = "0ac620a5-af40-4f3d-afc2-acecc7f4e8ba"
 
-class App extends React.Component{
+class App extends React.Component {
 	state = {
 		tela: "home",
 		anuncios: [
@@ -26,12 +33,12 @@ class App extends React.Component{
 				description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
 				price: 40,
 				paymentMethods: [
-				  "PayPal",
-				  "boleto"
+					"PayPal",
+					"boleto"
 				],
 				dueDate: "2021-12-30T00:00:00.000Z",
 				taken: false
-			  }
+			}
 		],
 		carrinho: [
 			{
@@ -40,12 +47,12 @@ class App extends React.Component{
 				"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
 				"price": 40,
 				"paymentMethods": [
-				  "PayPal",
-				  "boleto"
+					"PayPal",
+					"boleto"
 				],
 				"dueDate": "2021-12-30T00:00:00.000Z",
 				"taken": false
-			  }
+			}
 		]
 	}
 
@@ -85,12 +92,36 @@ class App extends React.Component{
 		deletarServico(id)
 	}
 
-	render(){
-		return(
+	trocarDeTela = () => {
+		switch(sessionStorage.getItem('tela')){
+			
+			case "queroSerUmNinja":
+				return <SerUmNinja invocarTela={this.invocarTrocarDeTela}/>
+
+			case "contratarUmNinja":
+				return <SecaoContratar invocarTela={this.invocarTrocarDeTela}/>
+
+			case "carrinho":
+				return <Carrinho invocarTela={this.invocarTrocarDeTela}/>
+
+			default:
+				return <Home invocarTela={this.invocarTrocarDeTela}/>
+		}
+	}
+
+	
+	invocarTrocarDeTela = (id) =>{
+		this.setState({tela: id})
+		sessionStorage.setItem('tela',id)
+		this.trocarDeTela()
+	}
+
+	render() {
+		return (
 			<div>
 				<GlobalStyle/>
-				{/* <Header/>
-				<Home/> */}
+				<Header invocarTela={this.invocarTrocarDeTela}/>
+				{this.trocarDeTela()}
 			</div>
 		)
 	}
