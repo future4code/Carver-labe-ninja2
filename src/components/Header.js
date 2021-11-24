@@ -12,13 +12,15 @@ const Pai = styled.header`
     padding: 0 12px 0 12px;
 `
 export default class Header extends React.Component {
+
     render() {
+
         return (
             <Pai>
                 <h1>LabeNinjas</h1>
                 <div>
-                    <button>Home</button>
-                    <button>Carrinho</button>
+                    <button onClick={() => this.props.invocarTela("home")}>Home</button>
+                    <button onClick={() => this.props.invocarTela("carrinho")}>Carrinho</button>
                 </div>
             </Pai>
         )
