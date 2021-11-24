@@ -28,8 +28,8 @@ export default class Home extends React.Component {
                     <h1>LabeNinjas</h1>
                     <h3>O talento certo no momento certo</h3>
                     <Buttons>
-                        <button onClick={this.props.trocarDeTelaSerUmNinja}>Quero ser um Ninja</button>
-                        <button onClick={this.props.trocarDeTelaSecaoContratar}>Contratar um Ninja</button>
+                        <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um Ninja</button>
+                        <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Contratar um Ninja</button>
                     </Buttons>
                 </Pai>
             </Main>

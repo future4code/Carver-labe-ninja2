@@ -57,50 +57,33 @@ class App extends React.Component {
 
 	trocarDeTela = () => {
 		switch(sessionStorage.getItem('tela')){
-			case "home":
-				return <Home trocarDeTelaSerUmNinja={this.trocarDeTelaSerUmNinja} trocarDeTelaSecaoContratar={this.trocarDeTelaSecaoContratar}/>
-
+			
 			case "queroSerUmNinja":
-				return <SerUmNinja/>
+				return <SerUmNinja invocarTela={this.invocarTrocarDeTela}/>
 
 			case "contratarUmNinja":
-				return <SecaoContratar/>
+				return <SecaoContratar invocarTela={this.invocarTrocarDeTela}/>
 
 			case "carrinho":
-				return <Carrinho/>
+				return <Carrinho invocarTela={this.invocarTrocarDeTela}/>
 
 			default:
-				return <Home/>
+				return <Home invocarTela={this.invocarTrocarDeTela}/>
 		}
 	}
 
-	trocarDeTelaHome = () =>{
-        this.setState({tela: "home"})
-		sessionStorage.setItem('tela','home')
-        this.trocarDeTela()
-    }
-    trocarDeTelaCarrinho = () =>{
-        this.setState({tela: "carrinho"})
-		sessionStorage.setItem('tela','carrinho')
-        this.trocarDeTela()
-    }
-	trocarDeTelaSerUmNinja = () =>{
-        this.setState({tela: "queroSerUmNinja"})
-		sessionStorage.setItem('tela','queroSerUmNinja')
-        this.trocarDeTela()
-    }
-    trocarDeTelaSecaoContratar = () =>{
-        this.setState({tela: "contratarUmNinja"})
-		sessionStorage.setItem('tela','contratarUmNinja')
-        this.trocarDeTela()
-    }
-
+	
+	invocarTrocarDeTela = (id) =>{
+		this.setState({tela: id})
+		sessionStorage.setItem('tela',id)
+		this.trocarDeTela()
+	}
 
 	render() {
 		return (
 			<div>
 				<GlobalStyle/>
-				<Header trocarDeTelaHome={this.trocarDeTelaHome} trocarDeTelaCarrinho={this.trocarDeTelaCarrinho}/>
+				<Header invocarTela={this.invocarTrocarDeTela}/>
 				{this.trocarDeTela()}
 			</div>
 		)
