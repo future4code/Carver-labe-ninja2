@@ -122,10 +122,10 @@ class App extends React.Component {
 
 	componentDidMount = () => {
 		this.carregarJobs()
-		//this.atualizarJobs()
-		//this.pegarJob()
-		//this.deletarJobs()
-		//this.criarJobs()
+	}
+
+	componentDidUpdate = () => {
+		this.carregarJobs()
 	}
 
 	addCarrinho = (servico) => {
