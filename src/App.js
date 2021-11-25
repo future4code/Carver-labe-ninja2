@@ -4,16 +4,29 @@ import { createGlobalStyle } from 'styled-components';
 import styled from 'styled-components';
 import Header from './components/Header'
 import Home from './components/Home';
+<<<<<<< HEAD
 import CardQueroContratar from './components/CardQueroContratar';
 import SecaoContratar from './components/SecaoContratar/SecaoContratar';
+=======
+import { atualizarServicos, deletarServico, getServicoPorId, getServicos, postServicos } from './Servicos/Api'
+import SecaoContratar from './components/SecaoContratar/SecaoContratar'
+import Carrinho from './components/Carrinho'
+>>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
     padding: 0;
 	box-sizing: border-box;
+
+	button{
+		&:hover{
+			cursor: pointer;
+		}
+	}
    }
 `
+const idTeste = "0ac620a5-af40-4f3d-afc2-acecc7f4e8ba"
 
 class App extends React.Component {
 	state = {
@@ -27,6 +40,7 @@ class App extends React.Component {
 				paymentMethods: [
 					"PayPal",
 					"boleto"
+<<<<<<< HEAD
 				],
 				dueDate: "2021-12-30",
 				taken: false
@@ -51,9 +65,12 @@ class App extends React.Component {
 				paymentMethods: [
 					"PayPal",
 					"boleto"
+=======
+>>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 				],
 				dueDate: "2050-12-30",
 				taken: false
+<<<<<<< HEAD
 			},
 			{
 				id: "kk",
@@ -106,6 +123,129 @@ class App extends React.Component {
 				/>
 
 
+=======
+			}
+		],
+		carrinho: {
+			valoTotal: 0,
+			produtos: [
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
+					"title": "Cortar a grama",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 40,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				},
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e6",
+					"title": "brincar com lama",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 60,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				},
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e5",
+					"title": "Fazer unha",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 50,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				}]
+		}
+	}
+
+	componentDidMount = () => {
+		//this.carregarJobs()
+		//this.atualizarJobs()
+		//this.pegarJob()
+		//this.deletarJobs()
+		//this.criarJobs()
+	}
+
+	carregarJobs = () => {
+		getServicos()
+	}
+
+	pegarJob = (id) => {
+		getServicoPorId(id)
+	}
+
+	criarJobs = () => {
+		let body = {
+			"title": "Babá",
+			"description": "Cuidar de crianças de 6 meses até 10 anos",
+			"price": 500,
+			"paymentMethods": ["PayPal", "boleto"],
+			"dueDate": "2021-12-30"
+		}
+
+		postServicos(body)
+	}
+
+	atualizarJobs = (boleano, id) => {
+		atualizarServicos(boleano, id)
+	}
+
+	deletarJobs = (id) => {
+		deletarServico(id)
+	}
+
+	//TROCAR DE TELA -------------------------------------------------------------------------------------------------
+
+	trocarDeTela = () => {
+		switch (sessionStorage.getItem('tela')) {
+
+			case "queroSerUmNinja":
+				return <SerUmNinja invocarTela={this.invocarTrocarDeTela} />
+
+			case "contratarUmNinja":
+				return <SecaoContratar invocarTela={this.invocarTrocarDeTela} />
+
+			case "carrinho":
+				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} />
+
+			default:
+				return <Home invocarTela={this.invocarTrocarDeTela} />
+		}
+	}
+
+
+	invocarTrocarDeTela = (id) => {
+		this.setState({ tela: id })
+		sessionStorage.setItem('tela', id)
+		this.trocarDeTela()
+	}
+
+	//ATUALIZAR CARRINHO-----------------------------------------------------------------------------------------------
+
+	atualizarCarrinho = (valor) => {
+		console.log(valor)
+		this.setState({ carrinho: { valoTotal: 0, produtos: valor } })
+	}
+
+	//RENDER-----------------------------------------------------------------------------------------------------------
+
+	render() {
+		return (
+			<div>
+				<GlobalStyle />
+				<Header invocarTela={this.invocarTrocarDeTela} />
+				{this.trocarDeTela()}
+>>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 			</div>
 		)
 	}
