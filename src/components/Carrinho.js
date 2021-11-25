@@ -31,9 +31,6 @@ export default class Carrinho extends Component {
 
   finalizarCompra = () => {
     alert("obrigada por comprar com a gente!!!!!!!")
-    for (let i = 0; i < this.props.carrinho.produtos.length; i++) {
-      this.props.atualizarJobs(false, this.props.carrinho.produtos[i].id)
-    }
     this.props.invocarTela("contratarUmNinja")
     this.props.atualizarCarrinho([])
   }
