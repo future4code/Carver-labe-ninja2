@@ -1,6 +1,7 @@
 import React from 'react'
 import styled from "styled-components";
 import DetalhesServicos from './DetalhesServicos';
+import {getServicos, postServicos} from '../Servicos/Api'
 
 const Cadastro = styled.div`
     display: flex;
@@ -97,12 +98,15 @@ class SerUmNinja extends React.Component {
         const novoServico = {
             "title": this.state.inputTitulo,
             "description": this.state.inputDescricao,
-            "price": this.state.inputPreco,
+            "price": Number(this.state.inputPreco),
             "paymentMethods": this.state.inputPagamento,
             "dueDate": this.state.inputData,
-            "taken": false
         }
+        console.log("novo",novoServico)
+    
         // Chamar a requisição POST: Create Job
+        postServicos(novoServico)
+        getServicos()
 
         alert(`Serviço cadastrado com sucesso!`)
         this.setState({
@@ -151,9 +155,8 @@ class SerUmNinja extends React.Component {
                     type="date" />
                 <ContainerBotoes>
                     <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
-                    <button onClick={this.cadastrarServico}>Voltar para Home</button>
                 </ContainerBotoes>
-                <DetalhesServicos />
+
             </Cadastro>
         )
     }

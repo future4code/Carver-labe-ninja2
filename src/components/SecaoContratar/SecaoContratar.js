@@ -61,9 +61,6 @@ export default class SecaoContratar extends React.Component {
 
   
   render() {
-
-    console.log("carrinho", this.props.carrinho)
-
     const servicos = this.props.anuncios.filter((servico) => {
       return servico.title.toLowerCase().includes(this.state.busca.toLowerCase()) || servico.description.toLowerCase().includes(this.state.busca.toLowerCase())
     }).filter((servico) => {
@@ -87,8 +84,9 @@ export default class SecaoContratar extends React.Component {
       }
     }).map((servico) => {
       return <CardQueroContratar
+        invocarTela={this.props.invocarTela}
         servico={servico}
-        addCarrinho={this.props.addCarrinho}/>
+        addCarrinho={() => this.props.addCarrinho(servico)}/>
        
         
     })

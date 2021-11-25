@@ -6,7 +6,8 @@ import Home from './components/Home';
 import { atualizarServicos, deletarServico, getServicoPorId, getServicos, postServicos } from './Servicos/Api'
 import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
-
+import DetalhesServicos from './components/DetalhesServicos';
+import CardQueroContratar from './components/CardQueroContratar';
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
@@ -25,134 +26,154 @@ class App extends React.Component {
 	state = {
 		tela: "home",
 		anuncios: [
-			{
-				id: "efed9385-cf87-4f0e-a121-465384b3f2e4",
-				title: "Cortar a grama",
-				description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-				price: 40,
-				paymentMethods: [
-					"PayPal",
-					"boleto"
-				],
-				dueDate: "2021-12-30",
-				taken: false
-			},
-			{
-				id: "a",
-				title: "Oiii",
-				description: "ççççç.",
-				price: 4000,
-				paymentMethods: [
-					"PayPal",
-					"boleto"
-				],
-				dueDate: "2221-12-30",
-				taken: false
-			},
-			{
-				id: "e",
-				title: "hoje",
-				description: "uuuuu.",
-				price: 5,
-				paymentMethods: [
-					"PayPal",
-					"boleto"
-				],
-				dueDate: "2050-12-30",
-				taken: false
-			},
-			{
-				id: "kk",
-				title: "Testettsvsg",
-				description: "jjjj.",
-				price: 500,
-				paymentMethods: [
-					"PayPal",
-					"boleto"
-				],
-				dueDate: "2090-12-30",
-				taken: false
-			}
+			// {
+			// 	id: "efed9385-cf87-4f0e-a121-465384b3f2e4",
+			// 	title: "Cortar a grama",
+			// 	description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
+			// 	price: 40,
+			// 	paymentMethods: [
+			// 		"PayPal",
+			// 		"boleto"
+			// 	],
+			// 	dueDate: "2021-12-30",
+			// 	taken: false
+			// },
+			// {
+			// 	id: "a",
+			// 	title: "Oiii",
+			// 	description: "ççççç.",
+			// 	price: 4000,
+			// 	paymentMethods: [
+			// 		"PayPal",
+			// 		"boleto"
+			// 	],
+			// 	dueDate: "2221-12-30",
+			// 	taken: false
+			// },
+			// {
+			// 	id: "e",
+			// 	title: "hoje",
+			// 	description: "uuuuu.",
+			// 	price: 5,
+			// 	paymentMethods: [
+			// 		"PayPal",
+			// 		"boleto"
+			// 	],
+			// 	dueDate: "2050-12-30",
+			// 	taken: false
+			// },
+			// {
+			// 	id: "kk",
+			// 	title: "Testettsvsg",
+			// 	description: "jjjj.",
+			// 	price: 500,
+			// 	paymentMethods: [
+			// 		"PayPal",
+			// 		"boleto"
+			// 	],
+			// 	dueDate: "2090-12-30",
+			// 	taken: false
+			// }
 	
 		],
 		carrinho: {
 			valoTotal: 0,
 			produtos: [
-				{
-					"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-					"title": "Cortar a grama",
-					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-					"price": 40,
-					"paymentMethods": [
-						"PayPal",
-						"boleto"
-					],
-					"dueDate": "2021-12-30T00:00:00.000Z",
-					"taken": false
-				},
-				{
-					"id": "efed9385-cf87-4f0e-a121-465384b3f2e6",
-					"title": "brincar com lama",
-					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-					"price": 60,
-					"paymentMethods": [
-						"PayPal",
-						"boleto"
-					],
-					"dueDate": "2021-12-30T00:00:00.000Z",
-					"taken": false
-				},
-				{
-					"id": "efed9385-cf87-4f0e-a121-465384b3f2e5",
-					"title": "Fazer unha",
-					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-					"price": 50,
-					"paymentMethods": [
-						"PayPal",
-						"boleto"
-					],
-					"dueDate": "2021-12-30T00:00:00.000Z",
-					"taken": false
-				}]
-		}
+				// {
+				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
+				// 	"title": "Cortar a grama",
+				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+				// 	"price": 40,
+				// 	"paymentMethods": [
+				// 		"PayPal",
+				// 		"boleto"
+				// 	],
+				// 	"dueDate": "2021-12-30T00:00:00.000Z",
+				// 	"taken": false
+				// },
+				// {
+				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e6",
+				// 	"title": "brincar com lama",
+				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+				// 	"price": 60,
+				// 	"paymentMethods": [
+				// 		"PayPal",
+				// 		"boleto"
+				// 	],
+				// 	"dueDate": "2021-12-30T00:00:00.000Z",
+				// 	"taken": false
+				// },
+				// {
+				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e5",
+				// 	"title": "Fazer unha",
+				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+				// 	"price": 50,
+				// 	"paymentMethods": [
+				// 		"PayPal",
+				// 		"boleto"
+				// 	],
+				// 	"dueDate": "2021-12-30T00:00:00.000Z",
+				// 	"taken": false
+				// }
+			]
+		},
+		servisoSelecionado:[]
 	}
 
-	addCarrinho = (servico) => {
-		let servicoSelecionado = [...this.state.carrinho, servico]
-		this.setState({carrinho: servicoSelecionado})
-		alert(`O serviço foi adicionado ao seu carrinho`)
-	  }
-
 	componentDidMount = () => {
-		//this.carregarJobs()
+		this.carregarJobs()
 		//this.atualizarJobs()
 		//this.pegarJob()
 		//this.deletarJobs()
 		//this.criarJobs()
 	}
 
+	addCarrinho = (servico) => {
+		let soma=servico.price
+		 this.state.carrinho.produtos.map((valor) => {
+			soma = valor.price + soma
+			return soma
+		  })
+// sugestão de melhoria: usar reduce no lugar do map
+
+		let novoServico = {
+			valorTotal : soma,
+			produtos:[...this.state.carrinho.produtos, servico]
+		}
+		
+		// let servicoSelecionado = [...this.state.carrinho, novoServico]
+
+		
+		this.setState({carrinho: novoServico})
+		//alert(`O serviço foi adicionado ao seu carrinho`)
+		this.atualizarJobs(true,servico.id)
+		this.carregarJobs()
+		
+	}
+
 	carregarJobs = () => {
-		getServicos()
+		let servicos = getServicos()
+		servicos.then((res) => {
+			this.setState({
+				anuncios: res
+			})
+			return servicos
+
+		})
 	}
 
 	pegarJob = (id) => {
 		getServicoPorId(id)
 	}
 
-	criarJobs = () => {
-		let body = {
-			"title": "Babá",
-			"description": "Cuidar de crianças de 6 meses até 10 anos",
-			"price": 500,
-			"paymentMethods": ["PayPal", "boleto"],
-			"dueDate": "2021-12-30"
-		}
+	criarJobs = (body) => {
 
 		postServicos(body)
 	}
 
 	atualizarJobs = (boleano, id) => {
 		atualizarServicos(boleano, id)
+
 	}
 
 	deletarJobs = (id) => {
@@ -173,15 +194,17 @@ class App extends React.Component {
 
 			case "carrinho":
 				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} />
-
+			case "detalhes":
+				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela}/>
 			default:
 				return <Home invocarTela={this.invocarTrocarDeTela} />
 		}
 	}
 
 
-	invocarTrocarDeTela = (id) => {
-		this.setState({ tela: id })
+	invocarTrocarDeTela = (id,servico) => {
+		
+		this.setState({ tela: id, servisoSelecionado:servico })
 		sessionStorage.setItem('tela', id)
 		this.trocarDeTela()
 	}
@@ -189,13 +212,14 @@ class App extends React.Component {
 	//ATUALIZAR CARRINHO-----------------------------------------------------------------------------------------------
 
 	atualizarCarrinho = (valor) => {
-		console.log(valor)
+
 		this.setState({ carrinho: { valoTotal: 0, produtos: valor } })
 	}
 
 	//RENDER-----------------------------------------------------------------------------------------------------------
 
 	render() {
+		
 		return (
 			<div>
 				<GlobalStyle />

@@ -43,15 +43,6 @@ export default class Carrinho extends Component {
   }
 
   render() {
-
-    let soma = 0
-    let valorTotal = this.props.carrinho.produtos.map((valor) => {
-      soma = valor.price + soma
-      return soma
-    })
-
-    let valorResultante = valorTotal.pop()
-
     let itens = this.props.carrinho.produtos.map((item) => {
       return <ItemCarrinho> <p>{item.title}</p>
         <p>{`R$${item.price} `}</p>
@@ -60,7 +51,7 @@ export default class Carrinho extends Component {
     })
 
     let resultado = <CarrinhoTotal>
-      <p>{`Total: R$${valorResultante}`}</p>
+      <p>{`Total: R$${this.props.carrinho.valorTotal}`}</p>
       <button onClick={this.finalizarCompra}>Finalizar Compra</button>
 
       <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Voltar Para Lista</button>
