@@ -118,7 +118,7 @@ class App extends React.Component {
 	}
 
 	addCarrinho = (servico) => {
-		let servicoSelecionado = [...this.state.carrinho, servico]
+		let servicoSelecionado = [...this.state.carrinho.produtos, servico]
 		this.setState({carrinho: servicoSelecionado})
 		alert(`O serviço foi adicionado ao seu carrinho`)
 	  }
