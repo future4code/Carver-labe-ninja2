@@ -33,7 +33,6 @@ class CardQueroContratar extends React.Component {
     }
 
     render() {
-        // console.log(this.props.servico)
         return (
             <ContainerCard key={this.props.servico.id}>
                 <h3>{this.props.servico.title}</h3>
