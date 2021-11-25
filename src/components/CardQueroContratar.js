@@ -25,13 +25,19 @@ const ContainerBotoes = styled.div`
 
 class CardQueroContratar extends React.Component {
     render() {
+        // let convertData = new Date(this.props.servico.dueDate)
+        //     convertData = convertData.toLocaleDateString('pt-BR', {timeZone: "UTC"})
+        // console.log("servicos", this.props.servico)
+
         return (
-            <ContainerCard>
-                <h3>Título do Serviço</h3>
-                <p>Até 04/12/1991 por <strong>R$ 99.00</strong></p>
+            <ContainerCard key={this.props.servico.id}>
+                <h3>{this.props.servico.title}</h3>
+                <p>{this.props.servico.dueDate} <strong>R$ {this.props.servico.price},00</strong></p>
                 <ContainerBotoes>
                     <button>Ver detalhes</button>
-                    <button>Adicionar no carrinho</button>
+                    <button 
+                    onClick= {()=>this.props.addCarrinho(this.props.servico.id)}
+                    >Adicionar no carrinho</button>
                 </ContainerBotoes>
             </ContainerCard>
         )
