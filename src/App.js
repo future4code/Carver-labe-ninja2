@@ -122,10 +122,15 @@ class App extends React.Component {
 
 	componentDidMount = () => {
 		this.carregarJobs()
+
+		const tarefasString = localStorage.getItem("servicos")
+		const tarefasParse = JSON.parse(tarefasString)
+		this.setState({ carrinho: tarefasParse })
 	}
 
 	componentDidUpdate = () => {
 		this.carregarJobs()
+		localStorage.setItem("servicos", JSON.stringify(this.state.carrinho))
 	}
 
 	addCarrinho = (servico) => {
