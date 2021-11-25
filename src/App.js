@@ -74,7 +74,7 @@ class App extends React.Component {
 			// 	dueDate: "2090-12-30",
 			// 	taken: false
 			// }
-	
+
 		],
 		carrinho: {
 			valoTotal: 0,
@@ -117,7 +117,7 @@ class App extends React.Component {
 				// }
 			]
 		},
-		servisoSelecionado:[]
+		servisoSelecionado: []
 	}
 
 	componentDidMount = () => {
@@ -129,26 +129,29 @@ class App extends React.Component {
 	}
 
 	addCarrinho = (servico) => {
-		let soma=servico.price
-		 this.state.carrinho.produtos.map((valor) => {
-			soma = valor.price + soma
-			return soma
-		  })
-// sugestão de melhoria: usar reduce no lugar do map
+		if (servico.taken) { alert("Esse item já está no carinho!") }
+		else {
+			let soma = servico.price
+			this.state.carrinho.produtos.map((valor) => {
+				soma = valor.price + soma
+				return soma
+			})
+			// sugestão de melhoria: usar reduce no lugar do map
 
-		let novoServico = {
-			valorTotal : soma,
-			produtos:[...this.state.carrinho.produtos, servico]
+			let novoServico = {
+				valorTotal: soma,
+				produtos: [...this.state.carrinho.produtos, servico]
+			}
+
+			// let servicoSelecionado = [...this.state.carrinho, novoServico]
+
+
+			this.setState({ carrinho: novoServico })
+			//alert(`O serviço foi adicionado ao seu carrinho`)
+			this.atualizarJobs(true, servico.id)
+			this.carregarJobs()
+
 		}
-		
-		// let servicoSelecionado = [...this.state.carrinho, novoServico]
-
-		
-		this.setState({carrinho: novoServico})
-		//alert(`O serviço foi adicionado ao seu carrinho`)
-		this.atualizarJobs(true,servico.id)
-		this.carregarJobs()
-		
 	}
 
 	carregarJobs = () => {
@@ -190,21 +193,21 @@ class App extends React.Component {
 
 			case "contratarUmNinja":
 				return <SecaoContratar invocarTela={this.invocarTrocarDeTela} anuncios={this.state.anuncios}
-				carrinho={this.state.carrinho} addCarrinho={this.addCarrinho}/>
+					carrinho={this.state.carrinho} addCarrinho={this.addCarrinho} />
 
 			case "carrinho":
-				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} />
+				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} atualizarJobs={this.atualizarJobs}/>
 			case "detalhes":
-				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela}/>
+				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela} />
 			default:
 				return <Home invocarTela={this.invocarTrocarDeTela} />
 		}
 	}
 
 
-	invocarTrocarDeTela = (id,servico) => {
-		
-		this.setState({ tela: id, servisoSelecionado:servico })
+	invocarTrocarDeTela = (id, servico) => {
+
+		this.setState({ tela: id, servisoSelecionado: servico })
 		sessionStorage.setItem('tela', id)
 		this.trocarDeTela()
 	}
@@ -219,7 +222,7 @@ class App extends React.Component {
 	//RENDER-----------------------------------------------------------------------------------------------------------
 
 	render() {
-		
+
 		return (
 			<div>
 				<GlobalStyle />
