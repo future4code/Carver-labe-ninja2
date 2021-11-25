@@ -4,22 +4,22 @@ import axios from "axios";
 const baseUrl = "https://labeninjas.herokuapp.com/"
 const key = "c16ec737-3449-4c8f-b9c9-40e539f06238"
 
-export const getServicos = () => {
+export const getServicos = async () => {
 
-    const url = baseUrl + "jobs"
-    const request = axios.get(url,{
-        headers:{
-            "Authorization": key
-        }
-    })
+    try{
+        const url = baseUrl + "jobs"
+        const request = await axios.get(url,{
+            headers:{
+                "Authorization": key
+            }
+        })
 
-    request.then((res) => {
-        console.log(res.data)
-        return res.data.jobs
-    })
-    .catch((err)=>{
+       // console.log(request.data.jobs)
+        return request.data.jobs
+
+    } catch(err){
         console.log(err.message)
-    })
+    }
 }
 
 export const getServicoPorId = (id) =>{
