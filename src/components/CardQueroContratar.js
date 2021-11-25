@@ -24,15 +24,20 @@ const ContainerBotoes = styled.div`
 `
 
 class CardQueroContratar extends React.Component {
+
+    organizarData = () => {
+        const partesData = this.props.servico.dueDate.split("-")
+        // console.log(partesData)
+        const novaData = `${partesData[2].slice(0,2)}/${partesData[1]}/${partesData[0]}`
+        return novaData;
+    }
+
     render() {
-        // let convertData = new Date(this.props.servico.dueDate)
-        //     convertData = convertData.toLocaleDateString('pt-BR', {timeZone: "UTC"})
-        // console.log("servicos", this.props.servico)
-        console.log(this.props.servico)
+        // console.log(this.props.servico)
         return (
             <ContainerCard key={this.props.servico.id}>
                 <h3>{this.props.servico.title}</h3>
-                <p>{this.props.servico.dueDate} <strong>R$ {this.props.servico.price}</strong></p>
+                <p>{this.organizarData()} <strong>R$ {this.props.servico.price}</strong></p>
                 <ContainerBotoes>
                     <button onClick={() => this.props.invocarTela("detalhes",this.props.servico)}>Ver detalhes</button>
                     <button 

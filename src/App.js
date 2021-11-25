@@ -121,7 +121,6 @@ class App extends React.Component {
 	}
 
 	componentDidMount = () => {
-		console.log('aqui')
 		this.carregarJobs()
 		//this.atualizarJobs()
 		//this.pegarJob()
@@ -144,8 +143,8 @@ class App extends React.Component {
 		
 		// let servicoSelecionado = [...this.state.carrinho, novoServico]
 
-		console.log(novoServico)
-		this.setState({carrinho: novoServico},()=>console.log("carrinhooo",this.state.carrinho))
+		
+		this.setState({carrinho: novoServico})
 		//alert(`O serviço foi adicionado ao seu carrinho`)
 		this.atualizarJobs(true,servico.id)
 		this.carregarJobs()
@@ -213,14 +212,14 @@ class App extends React.Component {
 	//ATUALIZAR CARRINHO-----------------------------------------------------------------------------------------------
 
 	atualizarCarrinho = (valor) => {
-		console.log(valor)
+
 		this.setState({ carrinho: { valoTotal: 0, produtos: valor } })
 	}
 
 	//RENDER-----------------------------------------------------------------------------------------------------------
 
 	render() {
-		//console.log(this.state.anuncios)
+		
 		return (
 			<div>
 				<GlobalStyle />
