@@ -1,17 +1,11 @@
 import React from 'react'
 import SerUmNinja from './components/SerUmNinja'
 import { createGlobalStyle } from 'styled-components';
-import styled from 'styled-components';
 import Header from './components/Header'
 import Home from './components/Home';
-<<<<<<< HEAD
-import CardQueroContratar from './components/CardQueroContratar';
-import SecaoContratar from './components/SecaoContratar/SecaoContratar';
-=======
 import { atualizarServicos, deletarServico, getServicoPorId, getServicos, postServicos } from './Servicos/Api'
 import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
->>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 
 const GlobalStyle = createGlobalStyle`
    *{
@@ -26,7 +20,6 @@ const GlobalStyle = createGlobalStyle`
 	}
    }
 `
-const idTeste = "0ac620a5-af40-4f3d-afc2-acecc7f4e8ba"
 
 class App extends React.Component {
 	state = {
@@ -40,7 +33,6 @@ class App extends React.Component {
 				paymentMethods: [
 					"PayPal",
 					"boleto"
-<<<<<<< HEAD
 				],
 				dueDate: "2021-12-30",
 				taken: false
@@ -65,12 +57,9 @@ class App extends React.Component {
 				paymentMethods: [
 					"PayPal",
 					"boleto"
-=======
->>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 				],
 				dueDate: "2050-12-30",
 				taken: false
-<<<<<<< HEAD
 			},
 			{
 				id: "kk",
@@ -84,47 +73,7 @@ class App extends React.Component {
 				dueDate: "2090-12-30",
 				taken: false
 			}
-		],
-		carrinho: [
-			{
-				"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-				"title": "Cortar a grama",
-				"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-				"price": 40,
-				"paymentMethods": [
-					"PayPal",
-					"boleto"
-				],
-				"dueDate": "2021-12-30T00:00:00.000Z",
-				"taken": false
-			}
-		]
-		
-	}
-
-		addCarrinho = (servico) => {
-		let servicoSelecionado = [...this.state.carrinho, servico]
-		this.setState({carrinho: servicoSelecionado})
-		alert(`O serviço foi adicionado ao seu carrinho`)
-	  }
-
-
-	render() {
-		return (
-
-			<div>
-				<GlobalStyle />
-				{/* <Header/>
-				<Home/> */}
-				<SecaoContratar
-					anuncios={this.state.anuncios}
-					carrinho={this.state.carrinho}
-					addCarrinho={this.addCarrinho}
-				/>
-
-
-=======
-			}
+	
 		],
 		carrinho: {
 			valoTotal: 0,
@@ -167,6 +116,12 @@ class App extends React.Component {
 				}]
 		}
 	}
+
+	addCarrinho = (servico) => {
+		let servicoSelecionado = [...this.state.carrinho, servico]
+		this.setState({carrinho: servicoSelecionado})
+		alert(`O serviço foi adicionado ao seu carrinho`)
+	  }
 
 	componentDidMount = () => {
 		//this.carregarJobs()
@@ -213,7 +168,8 @@ class App extends React.Component {
 				return <SerUmNinja invocarTela={this.invocarTrocarDeTela} />
 
 			case "contratarUmNinja":
-				return <SecaoContratar invocarTela={this.invocarTrocarDeTela} />
+				return <SecaoContratar invocarTela={this.invocarTrocarDeTela} anuncios={this.state.anuncios}
+				carrinho={this.state.carrinho} addCarrinho={this.addCarrinho}/>
 
 			case "carrinho":
 				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} />
@@ -245,7 +201,6 @@ class App extends React.Component {
 				<GlobalStyle />
 				<Header invocarTela={this.invocarTrocarDeTela} />
 				{this.trocarDeTela()}
->>>>>>> 473a83f85e0eb51daa122055904779b67f9286ca
 			</div>
 		)
 	}
