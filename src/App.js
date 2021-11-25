@@ -129,6 +129,14 @@ class App extends React.Component {
 	}
 
 	addCarrinho = (servico) => {
+		let verificaExistencia;
+		for (let i = 0; i < this.state.carrinho.produtos.length; i++) {
+			if (this.state.carrinho.produtos[i].id === servico.id) {
+				verificaExistencia = true;
+			}
+		}
+		if (verificaExistencia) { alert("Esse produto já está no carrinho.") }
+		else {
 			let soma = servico.price
 			this.state.carrinho.produtos.map((valor) => {
 				soma = valor.price + soma
@@ -145,9 +153,11 @@ class App extends React.Component {
 
 
 			this.setState({ carrinho: novoServico })
-			//alert(`O serviço foi adicionado ao seu carrinho`)
+			alert(`O serviço foi adicionado ao seu carrinho`)
 			this.atualizarJobs(true, servico.id)
 			this.carregarJobs()
+		}
+
 	}
 
 	carregarJobs = () => {
@@ -192,7 +202,7 @@ class App extends React.Component {
 					carrinho={this.state.carrinho} addCarrinho={this.addCarrinho} />
 
 			case "carrinho":
-				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} atualizarJobs={this.atualizarJobs}/>
+				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} atualizarJobs={this.atualizarJobs} />
 			case "detalhes":
 				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela} />
 			default:
