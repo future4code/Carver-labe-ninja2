@@ -159,6 +159,10 @@ class App extends React.Component {
 		deletarServico(id)
 	}
 
+	teste = () =>{
+
+	}
+	
 	//TROCAR DE TELA -------------------------------------------------------------------------------------------------
 
 	trocarDeTela = () => {
