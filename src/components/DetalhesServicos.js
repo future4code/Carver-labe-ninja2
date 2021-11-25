@@ -65,6 +65,7 @@ class DetalhesServicos extends React.Component {
     }
 
     render() {
+        console.log(this.props.servico)
         return (
             <ContainerDetalhes>
                 <ContainerInfoServico>
@@ -76,8 +77,8 @@ class DetalhesServicos extends React.Component {
                     <p>Até {this.organizarData()} por <strong>R$ {this.detalhesServicos.price}</strong>.</p>
 
                     <ContainerBotoes>
-                        <button>Adicionar ao carrinho</button>
-                        <button>Voltar para a lista</button>
+                        <button onClick={()=>this.props.addCarrinho(this.props.servico)}>Adicionar ao carrinho</button>
+                        <button onClick={()=>this.props.invocarTela("contratarUmNinja")}>Voltar para a lista</button>
                     </ContainerBotoes>
                 </ContainerInfoServico>
             </ContainerDetalhes>

@@ -87,6 +87,7 @@ export default class SecaoContratar extends React.Component {
       }
     }).map((servico) => {
       return <CardQueroContratar
+        invocarTela={this.props.invocarTela}
         servico={servico}
         addCarrinho={() => this.props.addCarrinho(servico)}/>
        
