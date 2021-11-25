@@ -151,9 +151,8 @@ class SerUmNinja extends React.Component {
                     type="date" />
                 <ContainerBotoes>
                     <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
-                    <button onClick={this.cadastrarServico}>Voltar para Home</button>
                 </ContainerBotoes>
-                <DetalhesServicos />
+
             </Cadastro>
         )
     }

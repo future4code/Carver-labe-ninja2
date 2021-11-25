@@ -69,6 +69,7 @@ export const atualizarServicos = (boleano, id) => {
     })
 
     .then((res) => {
+        console.log(res.data.message)
        return res.data.message
     })
 
