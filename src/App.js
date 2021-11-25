@@ -122,20 +122,13 @@ class App extends React.Component {
 
 	componentDidMount = () => {
 		this.carregarJobs()
-
-		const tarefasString = localStorage.getItem("servicos")
-		const tarefasParse = JSON.parse(tarefasString)
-		this.setState({ carrinho: tarefasParse })
 	}
 
 	componentDidUpdate = () => {
 		this.carregarJobs()
-		localStorage.setItem("servicos", JSON.stringify(this.state.carrinho))
 	}
 
 	addCarrinho = (servico) => {
-		if (servico.taken) { alert("Esse item já está no carinho!") }
-		else {
 			let soma = servico.price
 			this.state.carrinho.produtos.map((valor) => {
 				soma = valor.price + soma
@@ -155,8 +148,6 @@ class App extends React.Component {
 			//alert(`O serviço foi adicionado ao seu carrinho`)
 			this.atualizarJobs(true, servico.id)
 			this.carregarJobs()
-
-		}
 	}
 
 	carregarJobs = () => {
