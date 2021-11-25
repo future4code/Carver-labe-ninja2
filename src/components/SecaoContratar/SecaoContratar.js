@@ -61,9 +61,6 @@ export default class SecaoContratar extends React.Component {
 
   
   render() {
-
-    console.log("carrinho", this.props.carrinho)
-
     const servicos = this.props.anuncios.filter((servico) => {
       return servico.title.toLowerCase().includes(this.state.busca.toLowerCase()) || servico.description.toLowerCase().includes(this.state.busca.toLowerCase())
     }).filter((servico) => {

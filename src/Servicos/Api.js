@@ -49,6 +49,7 @@ export const postServicos = (body) => {
     })
 
     request.then((res) => {
+        console.log(res.data.message)
         return res.data.message
     })
     .catch((err) => {

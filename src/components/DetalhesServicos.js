@@ -65,16 +65,15 @@ class DetalhesServicos extends React.Component {
     }
 
     render() {
-        console.log(this.props.servico)
         return (
             <ContainerDetalhes>
                 <ContainerInfoServico>
                     <ContainerTitulo>
-                        <h3>{this.detalhesServicos.title}</h3>
-                        <p>{this.detalhesServicos.description}</p>
+                        <h3>{this.props.servico.title}</h3>
+                        <p>{this.props.servico.description}</p>
                     </ContainerTitulo>
-                    <p>Aceita: {this.detalhesServicos.paymentMethods.join([', '])}.</p>
-                    <p>Até {this.organizarData()} por <strong>R$ {this.detalhesServicos.price}</strong>.</p>
+                    <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p>
+                    <p>Até {this.organizarData()} por <strong>R$ {this.props.servico.price}</strong>.</p>
 
                     <ContainerBotoes>
                         <button onClick={()=>this.props.addCarrinho(this.props.servico)}>Adicionar ao carrinho</button>
