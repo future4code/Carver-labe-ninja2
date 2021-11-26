@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import DetalhesServicos from './DetalhesServicos';
 import { getServicos, postServicos } from '../Servicos/Api'
 
 const Container = styled.div`
@@ -185,7 +184,6 @@ class SerUmNinja extends React.Component {
                 "paymentMethods": this.state.inputPagamento,
                 "dueDate": this.state.inputData,
             }
-            console.log("novo", novoServico)
 
             // Chamar a requisição POST: Create Job
             postServicos(novoServico)

@@ -41,7 +41,7 @@ export default class Header extends React.Component {
             <Pai>
                 <h1 onClick={() => this.props.invocarTela("home")}>DeimeLimões</h1>
                 <div>
-                    <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho"/>
+                    <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho" />
                 </div>
             </Pai>
         )

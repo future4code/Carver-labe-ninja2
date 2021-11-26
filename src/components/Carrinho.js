@@ -145,7 +145,7 @@ export default class Carrinho extends Component {
 
     return (
       <Container>
-        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho}/><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
+        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho} /><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
         {this.props.carrinho.produtos.length > 0 ? resultado : ""}
       </Container>
     )

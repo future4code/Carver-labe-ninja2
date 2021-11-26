@@ -97,11 +97,11 @@ class DetalhesServicos extends React.Component {
 
     // Exemplo de resposta da requisição:
     detalhesServicos = {
-            title:"Cortar a grama",
-            description:"Manutenção em áreas verdes de até 1000 metros quadrados.",
-            price:40,
-            paymentMethods:["PayPal", "boleto"],
-            dueDate:"2021-12-30"
+        title: "Cortar a grama",
+        description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
+        price: 40,
+        paymentMethods: ["PayPal", "boleto"],
+        dueDate: "2021-12-30"
     }
 
     organizarData = () => {
@@ -117,15 +117,16 @@ class DetalhesServicos extends React.Component {
                     <ContainerTitulo>
                         <h2>{this.props.servico.title}</h2>
                         <Descricao>
-                        <p>{this.props.servico.description}</p>
+                            <p>{this.props.servico.description}</p>
+                            {/* <p>Descrição do Serviço aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> */}
                         </Descricao>
                     </ContainerTitulo>
-                    {/* <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p> */}
+                    <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p>
                     <p>Até {this.organizarData()} por <strong>R$ {this.props.servico.price}</strong>.</p>
 
                     <ContainerBotoes>
-                        <button onClick={()=>this.props.addCarrinho(this.props.servico)}>Adicionar ao carrinho</button>
-                        <button onClick={()=>this.props.invocarTela("contratarUmNinja")}>Voltar para a lista</button>
+                        <button onClick={() => this.props.addCarrinho(this.props.servico)}>Adicionar ao carrinho</button>
+                        <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Voltar para a lista</button>
                     </ContainerBotoes>
                 </ContainerInfoServico>
             </ContainerDetalhes>
