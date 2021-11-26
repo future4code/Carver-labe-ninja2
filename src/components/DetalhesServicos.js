@@ -2,19 +2,25 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerDetalhes = styled.div`
+    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    width: 100%;
+    height: 89vh;
 `
 
 const ContainerInfoServico = styled.div`
     display: flex;
-    align-items: center;
+    justify-content: space-around;
     flex-direction: column;
-    width: 30vw;
-    height: 40vh;
-
+    align-items: center;
+    width: 40%;
+    height: 90%;
+    padding: 1vw;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+    font-weight: bold;
+    
     p {
     margin: 0.7vh;
     text-align: center;
@@ -23,24 +29,68 @@ const ContainerInfoServico = styled.div`
 `
 
 const ContainerTitulo = styled.div`
-    text-align: center;
-    margin-bottom: 4vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    width: 80%;
+    height: 60%;
+    margin: 10px;
+    border: 1px solid orange;
+
     
-    h3 {
-        margin: 0.4vh;
+    h2 {
+        font-size: 6vh;
     }
 `
 
+const Descricao = styled.div`
+    /* border: 1px solid green; */
+    font-size: 1.1vw;
+    width: 80%;
+`
 
 const ContainerBotoes = styled.div`
-    margin-top: 4vh;
     display: flex;
-    justify-content: column;
     flex-direction: column;
+    justify-content: space-around;
+    /* border: 1px solid black; */
+    height: 30%;
+    margin-top: 3vh;
+    
 
-    button {
-        margin: 1vh;
+    button{
+        margin: 0 auto;
+        background-color: hsl(0deg 0% 0%);
+        color: white;
+        border: none;
+        z-index: 1;
+        position: relative;
+        font-size: inherit;
+        font-family: inherit;
+        color: white;
+        padding: 0.5em 1em;
+        outline: none;
+        border: none;
+        overflow: hidden;
         cursor: pointer;
+        height: 3vw;
+
+        &:after {
+            content: "";
+            z-index: -1;
+            background-color: hsla(0, 0%, 100%, 0.2);
+            position: absolute;
+            top: -50%;
+            bottom: -50%;
+            width: 2.0em;
+            transform: translate3d(-525%, 0, 0) rotate(35deg);
+        }
+
+        &:hover:after {
+            transition: transform 0.60s ease-in-out;
+            transform: translate3d(200%, 0, 0) rotate(35deg);
+        }
     }
     `
 
@@ -68,10 +118,14 @@ class DetalhesServicos extends React.Component {
             <ContainerDetalhes>
                 <ContainerInfoServico>
                     <ContainerTitulo>
-                        <h3>{this.props.servico.title}</h3>
+                        <h2>{this.props.servico.title}</h2>
+                        {/* <h2>Título do serviço</h2> */}
+                        <Descricao>
                         <p>{this.props.servico.description}</p>
+                            {/* <p>Descrição do Serviço aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> */}
+                        </Descricao>
                     </ContainerTitulo>
-                    <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p>
+                    {/* <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p> */}
                     <p>Até {this.organizarData()} por <strong>R$ {this.props.servico.price}</strong>.</p>
 
                     <ContainerBotoes>
