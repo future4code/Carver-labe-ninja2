@@ -8,6 +8,7 @@ import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
 import DetalhesServicos from './components/DetalhesServicos';
 import CardQueroContratar from './components/CardQueroContratar';
+
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;

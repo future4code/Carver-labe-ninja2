@@ -74,6 +74,38 @@ const Cadastro = styled.div`
             transform: translate3d(200%, 0, 0) rotate(35deg);
         }
     }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+
+        h2{
+            font-size: 8vw;
+        }
+
+        input, select{
+            width: 85%;
+            font-size: 5vw;
+            background-color: white;
+        }
+
+        input{
+            height: 9vw;
+            padding: 2%;
+
+        }
+        
+        select{
+            padding: 2%;
+            height: 33vw;
+        }
+
+        button{
+            width: 50%;
+            font-size: 5vw;
+        }
+    }
 `
 
 class SerUmNinja extends React.Component {

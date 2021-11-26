@@ -16,6 +16,8 @@ const Pai = styled.header`
         width: 2.5vw;
         margin-right: 1vw;
         cursor: pointer;
+
+        
     }
 
     h1{
@@ -27,6 +29,16 @@ const Pai = styled.header`
     span{
         width: 50px;
         height: 50px
+    }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        img{
+            width: 8vw;
+        }
+
+        h1{
+            font-size: 6vw;
+        }
     }
 `
 export default class Header extends React.Component {
