@@ -5,6 +5,10 @@ import CardQueroContratar from "../CardQueroContratar";
 
 const Pai = styled.div`
   background: url('https://images.unsplash.com/photo-1602104623433-2dd8b8b35548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    background-size: cover;
+  }
 `
 
 
@@ -22,6 +26,24 @@ const AreaFiltros = styled.div`
     margin-top: 10px;
   }
 
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 5%;
+    
+    input, select{
+      height: 10%;
+      width: 90%;
+      font-size: 5vw;
+    }
+
+    input{
+      border: none;
+    }
+  }
+
 
 `;
 const AreaCard = styled.div`
@@ -31,6 +53,14 @@ const AreaCard = styled.div`
   display: grid;
   grid-template-columns: repeat(4, 48vh);
   justify-content: space-evenly;
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
 `;
 
 
