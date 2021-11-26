@@ -1,38 +1,80 @@
 import React from 'react'
 import styled from "styled-components";
 import DetalhesServicos from './DetalhesServicos';
-import {getServicos, postServicos} from '../Servicos/Api'
+import { getServicos, postServicos } from '../Servicos/Api'
+
+const Container = styled.div`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px blue solid;
+    height: 89vh;
+`
 
 const Cadastro = styled.div`
     display: flex;
+    justify-content: space-around;
     flex-direction: column;
     align-items: center;
+    width: 40%;
+    height: 80%;
+    padding-bottom: 0.5vw;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
+
+    h2{
+        font-size: 3vw;
+    }
+
+    input,select{
+        width: 70%;
+        margin-bottom:12px;
+        border: none;
+    }
 
     input{
-        width:300px;
-        margin-bottom:12px;
+        padding: 0.5vw;
+        height: 2vw;
     }
 
     select{
-    width: 308px;
-    margin-bottom: 12px;
+        padding: 0.2vw;
+        height: 6.5vw;
+        overflow: auto;
     }
+
     button{
-    cursor: pointer;
+        margin: 0 auto;
+        background-color: hsl(0deg 0% 0%);
+        color: white;
+        border: none;
+        z-index: 1;
+        position: relative;
+        font-size: inherit;
+        font-family: inherit;
+        color: white;
+        padding: 0.5em 1em;
+        outline: none;
+        border: none;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:after {
+            content: "";
+            z-index: -1;
+            background-color: hsla(0, 0%, 100%, 0.2);
+            position: absolute;
+            top: -50%;
+            bottom: -50%;
+            width: 2.0em;
+            transform: translate3d(-525%, 0, 0) rotate(35deg);
+        }
+
+        &:hover:after {
+            transition: transform 0.60s ease-in-out;
+            transform: translate3d(200%, 0, 0) rotate(35deg);
+        }
     }
 `
-
-const ContainerBotoes = styled.div`
-    margin-top: 4vh;
-    display: flex;
-    justify-content: column;
-    flex-direction: column;
-
-    button {
-        margin: 1vh;
-        cursor: pointer;
-    }
-    `
 
 class SerUmNinja extends React.Component {
     state = {
@@ -95,69 +137,69 @@ class SerUmNinja extends React.Component {
         else if (this.state.inputPagamento.length === 0) { alert(`Escolhe ao menos uma forma de pagamento.`) }
         else if (!this.compararData()) { alert(`A data limite para a realização do serviço deve ser maior do que a data atual.`) }
         else {
-        const novoServico = {
-            "title": this.state.inputTitulo,
-            "description": this.state.inputDescricao,
-            "price": Number(this.state.inputPreco),
-            "paymentMethods": this.state.inputPagamento,
-            "dueDate": this.state.inputData,
-        }
-        console.log("novo",novoServico)
-    
-        // Chamar a requisição POST: Create Job
-        postServicos(novoServico)
-        getServicos()
+            const novoServico = {
+                "title": this.state.inputTitulo,
+                "description": this.state.inputDescricao,
+                "price": Number(this.state.inputPreco),
+                "paymentMethods": this.state.inputPagamento,
+                "dueDate": this.state.inputData,
+            }
+            console.log("novo", novoServico)
 
-        alert(`Serviço cadastrado com sucesso!`)
-        this.setState({
-            inputTitulo: "",
-            inputDescricao: "",
-            inputPreco: "",
-            inputPagamento: [],
-            inputData: "",
-        })
+            // Chamar a requisição POST: Create Job
+            postServicos(novoServico)
+            getServicos()
+
+            alert(`Serviço cadastrado com sucesso!`)
+            this.setState({
+                inputTitulo: "",
+                inputDescricao: "",
+                inputPreco: "",
+                inputPagamento: [],
+                inputData: "",
+            })
         }
     }
 
     render() {
         return (
-            <Cadastro>
-                <h1>Cadastre o seu serviço</h1>
-                <input
-                    placeholder="Título do serviço"
-                    value={this.state.inputTitulo}
-                    onChange={this.salvarTitulo}
-                    
-                />
-                <input
-                    placeholder="Descrição do serviço"
-                    value={this.state.inputDescricao}
-                    onChange={this.salvarDescricao}
-                />
-                <input
-                    placeholder="Preço"
-                    value={this.state.inputPreco}
-                    onChange={this.salvarPreco}
-                    type="number"
-                />
-                <select multiple onChange={this.salvarPagamento}>
-                    <option>Boleto</option>
-                    <option>Cartão de crédito</option>
-                    <option>Cartão de débito</option>
-                    <option>Pix</option>
-                    <option>PayPal</option>
-                </select>
-                <input
-                    placeholder="Prazo de serviço"
-                    value={this.state.inputData}
-                    onChange={this.salvarData}
-                    min={this.dataLimite()}
-                    type="date" />
-                <ContainerBotoes>
-                    <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
-                </ContainerBotoes>
+            <Container>
+                <Cadastro>
+                    <h2>Cadastre o seu serviço</h2>
+                    <input
+                        placeholder="Título do serviço"
+                        value={this.state.inputTitulo}
+                        onChange={this.salvarTitulo}
 
-            </Cadastro>
+                    />
+                    <input
+                        placeholder="Descrição do serviço"
+                        value={this.state.inputDescricao}
+                        onChange={this.salvarDescricao}
+                    />
+                    <input
+                        placeholder="Preço"
+                        value={this.state.inputPreco}
+                        onChange={this.salvarPreco}
+                        type="number"
+                    />
+                    <select multiple onChange={this.salvarPagamento}>
+                        <option>Boleto</option>
+                        <option>Cartão de crédito</option>
+                        <option>Cartão de débito</option>
+                        <option>Pix</option>
+                        <option>PayPal</option>
+                    </select>
+                    <input
+                        placeholder="Prazo de serviço"
+                        value={this.state.inputData}
+                        onChange={this.salvarData}
+                        min={this.dataLimite()}
+                        type="date" />
+                    <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
+                </Cadastro>
+            </Container>
+
         )
     }
 }

@@ -1,15 +1,33 @@
 import React from 'react'
 import styled from 'styled-components'
+import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
 const Pai = styled.header`
     border: 1px solid black;
-    background: grey;
+    background: black;
     height: 11vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    font-size: 12px;
-    padding: 0 12px 0 12px;
+    padding: 0 12px;
+    color: white;
+
+    img{
+        width: 2.5vw;
+        margin-right: 1vw;
+        cursor: pointer;
+    }
+
+    h1{
+        border: 2px solid white;
+        padding: 5px;
+        cursor: pointer;
+    }
+
+    span{
+        width: 50px;
+        height: 50px
+    }
 `
 export default class Header extends React.Component {
 
@@ -17,10 +35,9 @@ export default class Header extends React.Component {
 
         return (
             <Pai>
-                <h1>LabeNinjas</h1>
+                <h1 onClick={() => this.props.invocarTela("home")}>LabeNinjas</h1>
                 <div>
-                    <button onClick={() => this.props.invocarTela("home")}>Home</button>
-                    <button onClick={() => this.props.invocarTela("carrinho")}>Carrinho</button>
+                    <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho"/>
                 </div>
             </Pai>
         )
