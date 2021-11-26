@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import DetalhesServicos from './DetalhesServicos';
 import { getServicos, postServicos } from '../Servicos/Api'
 
 const Container = styled.div`
@@ -180,7 +179,6 @@ class SerUmNinja extends React.Component {
                 "paymentMethods": this.state.inputPagamento,
                 "dueDate": this.state.inputData,
             }
-            console.log("novo", novoServico)
 
             // Chamar a requisição POST: Create Job
             postServicos(novoServico)
@@ -226,15 +224,15 @@ class SerUmNinja extends React.Component {
                         <option>Pix</option>
                         <option>PayPal</option>
                     </select>
-                        <label>
-                            Prazo de serviço:
-                            <input
+                    <label>
+                        Prazo de serviço:
+                        <input
                             value={this.state.inputData}
                             onChange={this.salvarData}
                             min={this.dataLimite()}
-                            type="date"/>
-                        </label>
-                        
+                            type="date" />
+                    </label>
+
                     <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
                 </Cadastro>
             </Container>
