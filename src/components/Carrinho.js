@@ -18,23 +18,23 @@ const Container = styled.div`
   }
 `
 const ItemCarrinho = styled.div` 
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1%;
-margin: 0.8%;
-margin-bottom: 1.5vw;
-background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
-border: none;
-border-top-left-radius: 30px;
-border-bottom-right-radius: 20px;
-font-weight: bold;
-
-button{
-  background: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  margin: 0.8%;
+  margin-bottom: 1.5vw;
+  background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
   border: none;
-  color: grey
-}
+  border-top-left-radius: 30px;
+  border-bottom-right-radius: 20px;
+  font-weight: bold;
+
+  button{
+    background: transparent;
+    border: none;
+    color: grey
+  }
 
   @media screen and (min-device-width : 320px) and (max-device-width : 480px){
       height: 10vh;
@@ -143,7 +143,7 @@ export default class Carrinho extends Component {
 
     return (
       <Container>
-        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho}/><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
+        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho} /><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
         {this.props.carrinho.produtos.length > 0 ? resultado : ""}
       </Container>
     )

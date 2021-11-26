@@ -1,5 +1,4 @@
 import React from "react";
-import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
 import Carregar from '../Carregar';
@@ -47,14 +46,14 @@ const AreaFiltros = styled.div`
 
 
 `;
-const AreaCard = styled.div`
-  padding-bottom: 12vh;
-  margin-top: 2%;
-  width: 100%;
-  min-height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(4, 48vh);
-  justify-content: space-evenly;
+  const AreaCard = styled.div`
+    padding-bottom: 12vh;
+    margin-top: 2%;
+    width: 100%;
+    min-height: 80vh;
+    display: grid;
+    grid-template-columns: repeat(4, 48vh);
+    justify-content: space-evenly;
 
   @media screen and (min-device-width : 320px) and (max-device-width : 480px){
     display: flex;
@@ -116,9 +115,9 @@ export default class SecaoContratar extends React.Component {
       return <CardQueroContratar
         invocarTela={this.props.invocarTela}
         servico={servico}
-        addCarrinho={() => this.props.addCarrinho(servico)}/>
-       
-        
+        addCarrinho={() => this.props.addCarrinho(servico)} />
+
+
     })
 
     return (
@@ -140,7 +139,7 @@ export default class SecaoContratar extends React.Component {
           </select>
         </AreaFiltros>
         {this.props.anuncios.length
-        > 0? '': <Carregar/>}
+          > 0 ? '' : <Carregar />}
         <AreaCard>
           {servicos}
         </AreaCard>

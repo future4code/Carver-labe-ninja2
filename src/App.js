@@ -9,7 +9,6 @@ import Carrinho from './components/Carrinho'
 import DetalhesServicos from './components/DetalhesServicos';
 import Sobrenos from './components/Sobrenos';
 import Footer from './components/Footer';
-import CardQueroContratar from './components/CardQueroContratar';
 
 const GlobalStyle = createGlobalStyle`
    *{
@@ -28,57 +27,7 @@ const GlobalStyle = createGlobalStyle`
 class App extends React.Component {
 	state = {
 		tela: "home",
-		anuncios: [
-			// {
-			// 	id: "efed9385-cf87-4f0e-a121-465384b3f2e4",
-			// 	title: "Cortar a grama",
-			// 	description: "Manutenção em áreas verdes de até 1000 metros quadrados.",
-			// 	price: 40,
-			// 	paymentMethods: [
-			// 		"PayPal",
-			// 		"boleto"
-			// 	],
-			// 	dueDate: "2021-12-30",
-			// 	taken: false
-			// },
-			// {
-			// 	id: "a",
-			// 	title: "Oiii",
-			// 	description: "ççççç.",
-			// 	price: 4000,
-			// 	paymentMethods: [
-			// 		"PayPal",
-			// 		"boleto"
-			// 	],
-			// 	dueDate: "2221-12-30",
-			// 	taken: false
-			// },
-			// {
-			// 	id: "e",
-			// 	title: "hoje",
-			// 	description: "uuuuu.",
-			// 	price: 5,
-			// 	paymentMethods: [
-			// 		"PayPal",
-			// 		"boleto"
-			// 	],
-			// 	dueDate: "2050-12-30",
-			// 	taken: false
-			// },
-			// {
-			// 	id: "kk",
-			// 	title: "Testettsvsg",
-			// 	description: "jjjj.",
-			// 	price: 500,
-			// 	paymentMethods: [
-			// 		"PayPal",
-			// 		"boleto"
-			// 	],
-			// 	dueDate: "2090-12-30",
-			// 	taken: false
-			// }
-
-		],
+		anuncios: [],
 		carrinho: {
 			valoTotal: 0,
 			produtos: [

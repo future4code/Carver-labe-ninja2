@@ -79,7 +79,7 @@ class CardQueroContratar extends React.Component {
 
     organizarData = () => {
         const partesData = this.props.servico.dueDate.split("-")
-        const novaData = `${partesData[2].slice(0,2)}/${partesData[1]}/${partesData[0]}`
+        const novaData = `${partesData[2].slice(0, 2)}/${partesData[1]}/${partesData[0]}`
         return novaData;
     }
 
@@ -89,11 +89,8 @@ class CardQueroContratar extends React.Component {
                 <h3>{this.props.servico.title}</h3>
                 <p>{this.organizarData()} <strong>R$ {this.props.servico.price}</strong></p>
                 <ContainerBotoes>
-                    <button onClick={() => this.props.invocarTela("detalhes",this.props.servico)}>Ver detalhes</button>
-                    {/* <button 
-                    onClick= {()=>this.props.addCarrinho(this.props.servico.id)}
-                    >Adicionar no carrinho</button> */}
-                    <img src={CarrinhoIcon} onClick= {()=>this.props.addCarrinho(this.props.servico.id)}  alt="icone carrinho"/>
+                    <button onClick={() => this.props.invocarTela("detalhes", this.props.servico)}>Ver detalhes</button>
+                    <img src={CarrinhoIcon} onClick={() => this.props.addCarrinho(this.props.servico.id)} alt="icone carrinho" />
                 </ContainerBotoes>
             </ContainerCard>
         )
