@@ -14,6 +14,7 @@ const ContainerCard = styled.div`
     padding: 0 1vw 1vw;
     text-align: center;
     box-shadow: black 0px 3px 5px;
+    margin: 1vw;
 
     h3 {
         font-size: 1.2rem;

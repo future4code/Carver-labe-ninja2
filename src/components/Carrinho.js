@@ -1,15 +1,19 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import carrinho from '../Util/Imagem/vazio.svg'
 
 
 const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
 
   @media screen and (min-device-width : 320px) and (max-device-width : 480px){
     display: flex;
     flex-direction: column;
     align-items: center;
     padding-top: 4%;
-
     font-size: 5vw;
   }
 `
@@ -92,6 +96,19 @@ const Buttons = styled.div`
 
 `
 
+const Vazio = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vw;
+  font-size: 3vw;
+  opacity: 0.5;
+
+  img{
+    width: 300px;
+  }
+`
+
 export default class Carrinho extends Component {
 
   finalizarCompra = () => {
@@ -126,8 +143,8 @@ export default class Carrinho extends Component {
 
     return (
       <Container>
-        {this.props.carrinho.produtos.length > 0 ? itens : <h1>Carrinho</h1>}
-        {this.props.carrinho.produtos.length > 0 ? resultado : ' '}
+        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho}/><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
+        {this.props.carrinho.produtos.length > 0 ? resultado : ""}
       </Container>
     )
   }

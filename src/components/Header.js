@@ -3,7 +3,6 @@ import styled from 'styled-components'
 import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
 const Pai = styled.header`
-    border: 1px solid black;
     background: black;
     height: 11vh;
     display: flex;
@@ -26,11 +25,6 @@ const Pai = styled.header`
         cursor: pointer;
     }
 
-    span{
-        width: 50px;
-        height: 50px
-    }
-
     @media screen and (min-device-width : 320px) and (max-device-width : 480px){
         img{
             width: 8vw;
@@ -47,7 +41,7 @@ export default class Header extends React.Component {
 
         return (
             <Pai>
-                <h1 onClick={() => this.props.invocarTela("home")}>LabeNinjas</h1>
+                <h1 onClick={() => this.props.invocarTela("home")}>DeimeLimões</h1>
                 <div>
                     <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho"/>
                 </div>
