@@ -4,7 +4,7 @@
 - Página que simula um marketplace de contratação e prestação de serviços - ideia baseada no GetNinjas.
 - Tecnologia utilizada: React.
 - Principais componentes: integração com API; renderização de listas e busca com filtros; trocas de telas e responsividade; cadastros de serviços; informações sobre os serviços; sistema de carrinho de compras;
-- Projeto de fixação desenvolvido por alunso da Labenu_.
+- Projeto de fixação desenvolvido por alunos da Labenu_.
 
 ### Link Surge
 // adicionar link do Surge.
