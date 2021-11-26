@@ -27,13 +27,11 @@ class CardQueroContratar extends React.Component {
 
     organizarData = () => {
         const partesData = this.props.servico.dueDate.split("-")
-        // console.log(partesData)
         const novaData = `${partesData[2].slice(0,2)}/${partesData[1]}/${partesData[0]}`
         return novaData;
     }
 
     render() {
-        // console.log(this.props.servico)
         return (
             <ContainerCard key={this.props.servico.id}>
                 <h3>{this.props.servico.title}</h3>

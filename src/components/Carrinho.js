@@ -39,6 +39,7 @@ export default class Carrinho extends Component {
     const carrinhoSemItem = this.props.statusCarrinho.produtos.filter((item) => {
       return item.id !== id
     })
+    this.props.atualizarJobs(false, id)
     this.props.atualizarCarrinho(carrinhoSemItem)
   }
 
