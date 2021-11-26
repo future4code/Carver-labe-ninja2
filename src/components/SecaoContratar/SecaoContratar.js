@@ -2,9 +2,10 @@ import React from "react";
 import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
+import Carregar from '../Carregar';
 
 const Pai = styled.div`
-  background: url('https://images.unsplash.com/photo-1602104623433-2dd8b8b35548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
+  background: url('https://images.pexels.com/photos/5871215/pexels-photo-5871215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=300') repeat; 
 
   @media screen and (min-device-width : 320px) and (max-device-width : 480px){
     background-size: cover;
@@ -47,6 +48,7 @@ const AreaFiltros = styled.div`
 
 `;
 const AreaCard = styled.div`
+  padding-bottom: 12vh;
   margin-top: 2%;
   width: 100%;
   min-height: 80vh;
@@ -88,7 +90,6 @@ export default class SecaoContratar extends React.Component {
     this.setState({ ordem: event.target.value })
   }
 
-  
   render() {
     const servicos = this.props.anuncios.filter((servico) => {
       return servico.title.toLowerCase().includes(this.state.busca.toLowerCase()) || servico.description.toLowerCase().includes(this.state.busca.toLowerCase())
@@ -138,9 +139,10 @@ export default class SecaoContratar extends React.Component {
             <option value="dueDate">Prazo</option>
           </select>
         </AreaFiltros>
+        {this.props.anuncios.length
+        > 0? '': <Carregar/>}
         <AreaCard>
           {servicos}
-          
         </AreaCard>
       </Pai>
     );

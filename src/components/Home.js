@@ -20,7 +20,7 @@ const DivMain = styled.div`
     width: 60%;
 
     h1{
-        font-size: 8vw;
+        font-size: 7vw;
         padding: 1vw;
         /* border: 3px solid black; */
         text-decoration: underline;
@@ -117,11 +117,11 @@ export default class Home extends React.Component {
                     {/* <Imagem /> */}
                     <DivMain>
                         <InteriorMain>
-                            <h1>LabeNinjas</h1>
-                            <h2>O talento certo no momento certo</h2>
+                            <h1>DeimeLimões</h1>
+                            <h2>Se a vida te der limões, faça limonada.</h2>
                             <Buttons>
-                                <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um Ninja</button>
-                                <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Contratar um Ninja</button>
+                                <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um limão</button>
+                                <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Fazer Limonada</button>
                             </Buttons>
                         </InteriorMain>
 
