@@ -15,8 +15,6 @@ const Pai = styled.header`
         width: 2.5vw;
         margin-right: 1vw;
         cursor: pointer;
-
-        
     }
 
     h1{

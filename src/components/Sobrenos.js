@@ -1,7 +1,5 @@
 import React from 'react'
 import styled from "styled-components";
-import DetalhesServicos from './DetalhesServicos';
-import { getServicos, postServicos } from '../Servicos/Api'
 
 const Container = styled.div`
     display: flex;

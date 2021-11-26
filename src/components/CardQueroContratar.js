@@ -22,6 +22,7 @@ const ContainerCard = styled.div`
 
     img{
         width: 2.3vw;
+        cursor: pointer;
 
         &:hover{
             fill: black;

@@ -73,22 +73,23 @@ class App extends React.Component {
 	}
 
 	componentDidMount = () => {
-        this.carregarJobs()
-        this.buscarLocalStorage()
-    }
-    componentDidUpdate = () => {
-        this.carregarJobs()
-         this.salvarLocalStorage();
-    }
-    salvarLocalStorage = () => {
-        localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
-      }
-      buscarLocalStorage = () => {
-        const carrinhoLocalStorage = localStorage.getItem("carrinho")
-        const carrinhoParse = JSON.parse(carrinhoLocalStorage)
-        this.setState({ carrinho: carrinhoParse || { valorTotal: 0, produtos: []}
-        })
-      }
+		this.carregarJobs()
+		this.buscarLocalStorage()
+	}
+	componentDidUpdate = () => {
+		this.carregarJobs()
+		this.salvarLocalStorage();
+	}
+	salvarLocalStorage = () => {
+		localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+	}
+	buscarLocalStorage = () => {
+		const carrinhoLocalStorage = localStorage.getItem("carrinho")
+		const carrinhoParse = JSON.parse(carrinhoLocalStorage)
+		this.setState({
+			carrinho: carrinhoParse || { valorTotal: 0, produtos: [] }
+		})
+	}
 
 	addCarrinho = (servico) => {
 		let verificaExistencia;
@@ -168,7 +169,7 @@ class App extends React.Component {
 			case "detalhes":
 				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela} />
 			case "sobrenos":
-				return <Sobrenos/>
+				return <Sobrenos />
 			default:
 				return <Home invocarTela={this.invocarTrocarDeTela} />
 		}
@@ -198,7 +199,7 @@ class App extends React.Component {
 				<GlobalStyle />
 				<Header invocarTela={this.invocarTrocarDeTela} />
 				{this.trocarDeTela()}
-				<Footer invocarTela={this.invocarTrocarDeTela}/>
+				<Footer invocarTela={this.invocarTrocarDeTela} />
 			</div>
 		)
 	}

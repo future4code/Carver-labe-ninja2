@@ -127,10 +127,12 @@ export default class Carrinho extends Component {
 
   render() {
     let itens = this.props.carrinho.produtos.map((item) => {
-      return <ItemCarrinho><p>{item.title}</p>
+      return (
+      <ItemCarrinho>
+        <p>{item.title}</p>
         <p>{`R$${item.price} `}</p>
         <button onClick={() => this.removerItem(item.id)}>X</button>
-      </ItemCarrinho>
+      </ItemCarrinho>)
     })
 
     let resultado = <CarrinhoTotal>
