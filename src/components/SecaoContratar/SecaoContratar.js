@@ -58,7 +58,6 @@ export default class SecaoContratar extends React.Component {
     this.setState({ ordem: event.target.value })
   }
 
-  
   render() {
     const servicos = this.props.anuncios.filter((servico) => {
       return servico.title.toLowerCase().includes(this.state.busca.toLowerCase()) || servico.description.toLowerCase().includes(this.state.busca.toLowerCase())
@@ -110,7 +109,6 @@ export default class SecaoContratar extends React.Component {
         </AreaFiltros>
         <AreaCard>
           {servicos}
-          
         </AreaCard>
       </Pai>
     );

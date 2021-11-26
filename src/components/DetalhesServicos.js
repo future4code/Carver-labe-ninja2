@@ -2,10 +2,13 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerDetalhes = styled.div`
+    border: 1px solid red;
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 70vh;
+    /* height: 70vh; */
+    border: 1px blue solid;
+    height: 89vh;
 `
 
 const ContainerInfoServico = styled.div`

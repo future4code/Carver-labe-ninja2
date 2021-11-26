@@ -7,7 +7,8 @@ import { atualizarServicos, deletarServico, getServicoPorId, getServicos, postSe
 import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
 import DetalhesServicos from './components/DetalhesServicos';
-import CardQueroContratar from './components/CardQueroContratar';
+import Sobrenos from './components/Sobrenos';
+import Footer from './components/Footer';
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
@@ -205,6 +206,8 @@ class App extends React.Component {
 				return <Carrinho invocarTela={this.invocarTrocarDeTela} statusCarrinho={this.state.carrinho} atualizarCarrinho={this.atualizarCarrinho} carrinho={this.state.carrinho} atualizarJobs={this.atualizarJobs} />
 			case "detalhes":
 				return <DetalhesServicos servico={this.state.servisoSelecionado} addCarrinho={this.addCarrinho} invocarTela={this.invocarTrocarDeTela} />
+			case "sobrenos":
+				return <Sobrenos/>
 			default:
 				return <Home invocarTela={this.invocarTrocarDeTela} />
 		}
@@ -234,6 +237,7 @@ class App extends React.Component {
 				<GlobalStyle />
 				<Header invocarTela={this.invocarTrocarDeTela} />
 				{this.trocarDeTela()}
+				<Footer invocarTela={this.invocarTrocarDeTela}/>
 			</div>
 		)
 	}

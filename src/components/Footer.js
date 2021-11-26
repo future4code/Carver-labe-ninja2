@@ -3,11 +3,11 @@ import styled from 'styled-components'
 import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
 const Pai = styled.header`
-    background: black;
-    height: 11vh;
     display: flex;
     justify-content: space-between;
     align-items: center;
+    background: black;
+    height: 11vh;
     padding: 0 12px;
     color: white;
 
@@ -17,22 +17,19 @@ const Pai = styled.header`
         cursor: pointer;
     }
 
-    h1{
-        border: 2px solid white;
-        padding: 5px;
+
+    p{
         cursor: pointer;
     }
 `
-export default class Header extends React.Component {
+export default class Footer extends React.Component {
 
     render() {
 
         return (
             <Pai>
-                <h1 onClick={() => this.props.invocarTela("home")}>LabeNinjas</h1>
-                <div>
-                    <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho"/>
-                </div>
+                <p onClick={() => this.props.invocarTela("sobrenos")}>Sobre nós</p>
+                <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho" />
             </Pai>
         )
     }
