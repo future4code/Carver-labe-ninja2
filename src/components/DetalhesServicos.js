@@ -7,6 +7,7 @@ const ContainerDetalhes = styled.div`
     justify-content: center;
     width: 100%;
     height: 89vh;
+    padding-bottom: 11vh;
 `
 
 const ContainerInfoServico = styled.div`
@@ -15,7 +16,7 @@ const ContainerInfoServico = styled.div`
     flex-direction: column;
     align-items: center;
     width: 40%;
-    height: 90%;
+    height: 80%;
     padding: 1vw;
     background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
     font-weight: bold;
@@ -32,14 +33,13 @@ const ContainerTitulo = styled.div`
     flex-direction: column;
     align-items: center;
     justify-content: space-around;
-    width: 80%;
-    height: 60%;
+    width: 95%;
+    height: 20%;
     margin: 10px;
-    border: 1px solid orange;
 
-    
-    h2 {
-        font-size: 6vh;
+    h3 {
+        font-size: 4vh;
+        margin-bottom: 2vh;
     }
 `
 
@@ -115,10 +115,9 @@ class DetalhesServicos extends React.Component {
             <ContainerDetalhes>
                 <ContainerInfoServico>
                     <ContainerTitulo>
-                        <h2>{this.props.servico.title}</h2>
+                        <h3>{this.props.servico.title}</h3>
                         <Descricao>
                             <p>{this.props.servico.description}</p>
-                            {/* <p>Descrição do Serviço aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> */}
                         </Descricao>
                     </ContainerTitulo>
                     <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p>
