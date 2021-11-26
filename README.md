@@ -1,4 +1,4 @@
-### DaimeLimões - se a vida te der limões, faça limonada.
+### Projeto DaimeLimões - se a vida te der limões, faça limonada.
 
 ### Descrição
 - Página que simula um marketplace de contratação e prestação de serviços - ideia baseada no GetNinjas.
