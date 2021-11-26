@@ -8,6 +8,7 @@ import SecaoContratar from './components/SecaoContratar/SecaoContratar'
 import Carrinho from './components/Carrinho'
 import DetalhesServicos from './components/DetalhesServicos';
 import CardQueroContratar from './components/CardQueroContratar';
+
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
@@ -79,54 +80,64 @@ class App extends React.Component {
 		carrinho: {
 			valoTotal: 0,
 			produtos: [
-				// {
-				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
-				// 	"title": "Cortar a grama",
-				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-				// 	"price": 40,
-				// 	"paymentMethods": [
-				// 		"PayPal",
-				// 		"boleto"
-				// 	],
-				// 	"dueDate": "2021-12-30T00:00:00.000Z",
-				// 	"taken": false
-				// },
-				// {
-				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e6",
-				// 	"title": "brincar com lama",
-				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-				// 	"price": 60,
-				// 	"paymentMethods": [
-				// 		"PayPal",
-				// 		"boleto"
-				// 	],
-				// 	"dueDate": "2021-12-30T00:00:00.000Z",
-				// 	"taken": false
-				// },
-				// {
-				// 	"id": "efed9385-cf87-4f0e-a121-465384b3f2e5",
-				// 	"title": "Fazer unha",
-				// 	"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
-				// 	"price": 50,
-				// 	"paymentMethods": [
-				// 		"PayPal",
-				// 		"boleto"
-				// 	],
-				// 	"dueDate": "2021-12-30T00:00:00.000Z",
-				// 	"taken": false
-				// }
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e4",
+					"title": "Cortar a grama",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 40,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				},
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e6",
+					"title": "brincar com lama",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 60,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				},
+				{
+					"id": "efed9385-cf87-4f0e-a121-465384b3f2e5",
+					"title": "Fazer unha",
+					"description": "Manutenção em áreas verdes de até 1000 metros quadrados.",
+					"price": 50,
+					"paymentMethods": [
+						"PayPal",
+						"boleto"
+					],
+					"dueDate": "2021-12-30T00:00:00.000Z",
+					"taken": false
+				}
 			]
 		},
 		servisoSelecionado: []
 	}
 
 	componentDidMount = () => {
-		this.carregarJobs()
-	}
-
-	componentDidUpdate = () => {
-		this.carregarJobs()
-	}
+        this.carregarJobs()
+        this.buscarLocalStorage()
+    }
+    componentDidUpdate = () => {
+        this.carregarJobs()
+         this.salvarLocalStorage();
+    }
+    salvarLocalStorage = () => {
+        localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+      }
+      buscarLocalStorage = () => {
+        const carrinhoLocalStorage = localStorage.getItem("carrinho")
+        const carrinhoParse = JSON.parse(carrinhoLocalStorage)
+        this.setState({ carrinho: carrinhoParse || { valorTotal: 0, produtos: []}
+        })
+      }
 
 	addCarrinho = (servico) => {
 		let verificaExistencia;

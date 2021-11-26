@@ -1,25 +1,76 @@
 import React from "react";
 import styled from "styled-components"
+import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
 const ContainerCard = styled.div`
-    border: 1px solid black;
-    background-color: #d3d3d3;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    border-radius: 0.3vw;
+    color: black;
+    background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
     width: 20vw;
     height: 20vh;
     padding: 0 1vw 1vw;
     text-align: center;
+    box-shadow: black 0px 3px 5px;
 
     h3 {
         font-size: 1.2rem;
+    }
+
+    img{
+        width: 2.3vw;
+
+        &:hover{
+            fill: black;
+        }
+    }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 90%;
+        height: 25vh;
+        margin-bottom: 10%;
+
+        h3{
+            font-size: 10vw;
+        }
+
+        img{
+            width: 15vw;
+        }
+
+        p{
+            font-size: 6vw;
+        }
+
+        strong{
+            margin-left: 12%;
+            font-size: 7vw;
+        }
+
+        button{
+            font-size: 5vw;
+            background-color: white;
+        }
     }
 `
 
 const ContainerBotoes = styled.div`
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
+    align-items: center;
 
     button {
-        cursor: pointer;
+        width: 50%;
+        padding: 0.5vw;
+        border: none;
+        
+        &:hover{
+            background-color: black;
+            color: white;
+            font-weight: bold;
+        }
     }
 `
 
@@ -38,9 +89,10 @@ class CardQueroContratar extends React.Component {
                 <p>{this.organizarData()} <strong>R$ {this.props.servico.price}</strong></p>
                 <ContainerBotoes>
                     <button onClick={() => this.props.invocarTela("detalhes",this.props.servico)}>Ver detalhes</button>
-                    <button 
+                    {/* <button 
                     onClick= {()=>this.props.addCarrinho(this.props.servico.id)}
-                    >Adicionar no carrinho</button>
+                    >Adicionar no carrinho</button> */}
+                    <img src={CarrinhoIcon} onClick= {()=>this.props.addCarrinho(this.props.servico.id)}  alt="icone carrinho"/>
                 </ContainerBotoes>
             </ContainerCard>
         )
