@@ -1,7 +1,22 @@
 import React, { Component } from 'react'
 import styled from 'styled-components'
+import carrinho from '../Util/Imagem/vazio.svg'
 
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  width: 100vw;
+  height: 80vh;
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 4%;
+    font-size: 5vw;
+  }
+`
 const ItemCarrinho = styled.div` 
 display: flex;
 justify-content: space-between;
@@ -20,17 +35,32 @@ button{
   border: none;
   color: grey
 }
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+      height: 10vh;
+      width: 95%;
+      font-size: 5.5vw;
+      padding: 3%;
+  }
 `
 const CarrinhoTotal = styled.div`
-display: flex;
-justify-content: space-between;
-align-items: center;
-padding: 1%;
-font-weight: bold;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1%;
+  font-weight: bold;
 
-p, button{
-  margin-right: 1%;
-}
+  p, button{
+    margin-right: 1%;
+  }
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+    font-size: 6vw;
+    margin-top: 5%;
+  }
 
 `
 
@@ -50,6 +80,32 @@ const Buttons = styled.div`
       color: white;
       font-weight: bold;
      }
+  }
+
+  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    width: 100%;
+    margin-top: 3%;
+
+    button{
+      width: 40%;
+      font-size: 5vw;
+      padding: 2%;
+    }
+  }
+
+
+`
+
+const Vazio = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 5vw;
+  font-size: 3vw;
+  opacity: 0.5;
+
+  img{
+    width: 300px;
   }
 `
 
@@ -86,10 +142,10 @@ export default class Carrinho extends Component {
     </CarrinhoTotal>
 
     return (
-      <div>
-        {this.props.carrinho.produtos.length > 0 ? itens : <h1>Carrinho</h1>}
-        {this.props.carrinho.produtos.length > 0 ? resultado : ' '}
-      </div>
+      <Container>
+        {this.props.carrinho.produtos.length > 0 ? itens : <Vazio><img src={carrinho}/><p>Seu carrinho está vazio. Adicione algum serviço!</p></Vazio>}
+        {this.props.carrinho.produtos.length > 0 ? resultado : ""}
+      </Container>
     )
   }
 }

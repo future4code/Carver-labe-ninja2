@@ -9,6 +9,8 @@ import Carrinho from './components/Carrinho'
 import DetalhesServicos from './components/DetalhesServicos';
 import Sobrenos from './components/Sobrenos';
 import Footer from './components/Footer';
+import CardQueroContratar from './components/CardQueroContratar';
+
 const GlobalStyle = createGlobalStyle`
    *{
 	margin: 0;
@@ -122,12 +124,22 @@ class App extends React.Component {
 	}
 
 	componentDidMount = () => {
-		this.carregarJobs()
-	}
-
-	componentDidUpdate = () => {
-		this.carregarJobs()
-	}
+        this.carregarJobs()
+        this.buscarLocalStorage()
+    }
+    componentDidUpdate = () => {
+        this.carregarJobs()
+         this.salvarLocalStorage();
+    }
+    salvarLocalStorage = () => {
+        localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+      }
+      buscarLocalStorage = () => {
+        const carrinhoLocalStorage = localStorage.getItem("carrinho")
+        const carrinhoParse = JSON.parse(carrinhoLocalStorage)
+        this.setState({ carrinho: carrinhoParse || { valorTotal: 0, produtos: []}
+        })
+      }
 
 	addCarrinho = (servico) => {
 		let verificaExistencia;

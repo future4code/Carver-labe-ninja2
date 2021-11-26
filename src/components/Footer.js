@@ -2,14 +2,17 @@ import React from 'react'
 import styled from 'styled-components'
 import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
-const Pai = styled.header`
+const Pai = styled.footer`
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
     background: black;
     height: 11vh;
+    width: 100%;
     padding: 0 12px;
     color: white;
+    position: fixed;
+    bottom: 0;
 
     img{
         width: 2.5vw;
@@ -29,7 +32,6 @@ export default class Footer extends React.Component {
         return (
             <Pai>
                 <p onClick={() => this.props.invocarTela("sobrenos")}>Sobre nós</p>
-                <img src={CarrinhoIcon} onClick={() => this.props.invocarTela("carrinho")} alt="icone carrinho" />
             </Pai>
         )
     }

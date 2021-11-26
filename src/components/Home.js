@@ -6,6 +6,10 @@ const Main = styled.div`
     justify-content: center;
     height: 89vh;
     background: url('https://images.unsplash.com/photo-1513754934927-4606bafe9858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        background-size: cover;
+    }
     
 `
 
@@ -16,10 +20,17 @@ const DivMain = styled.div`
     width: 60%;
 
     h1{
-        font-size: 8vw;
+        font-size: 7vw;
         padding: 1vw;
         /* border: 3px solid black; */
         text-decoration: underline;
+    }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 95%;
+        h1{
+            font-size: 12vw;
+        }
     }
 `
 
@@ -35,6 +46,14 @@ const InteriorMain = styled.div`
 
     h2{
         font-size: 2vw;
+    }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+
+        h2{
+            font-size: 6vw;
+        }
     }
 `
 
@@ -75,6 +94,17 @@ const Buttons = styled.div`
             transition: transform 0.60s ease-in-out;
             transform: translate3d(200%, 0, 0) rotate(35deg);
         }
+
+    }
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        height: 40.5vw;
+        flex-direction: column;
+        justify-content: space-around;
+
+        button{
+            width: 100%;
+            font-size: 5vw;
+        }
     }
 
 `
@@ -87,11 +117,11 @@ export default class Home extends React.Component {
                     {/* <Imagem /> */}
                     <DivMain>
                         <InteriorMain>
-                            <h1>LabeNinjas</h1>
-                            <h2>O talento certo no momento certo</h2>
+                            <h1>DeimeLimões</h1>
+                            <h2>Se a vida te der limões, faça limonada.</h2>
                             <Buttons>
-                                <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um Ninja</button>
-                                <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Contratar um Ninja</button>
+                                <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um limão</button>
+                                <button onClick={() => this.props.invocarTela("contratarUmNinja")}>Fazer Limonada</button>
                             </Buttons>
                         </InteriorMain>
 

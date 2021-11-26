@@ -6,9 +6,9 @@ import { getServicos, postServicos } from '../Servicos/Api'
 const Container = styled.div`
     display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: flex-start;
     border: 1px blue solid;
-    height: 89vh;
+    min-height: 100vh;
 `
 
 const Cadastro = styled.div`
@@ -18,6 +18,7 @@ const Cadastro = styled.div`
     align-items: center;
     width: 40%;
     height: 80%;
+    margin-top: 5%;
     padding-bottom: 0.5vw;
     background: linear-gradient(110deg, #fdcd3b 60%, #ffed4b 60%);
 
@@ -73,9 +74,44 @@ const Cadastro = styled.div`
             transition: transform 0.60s ease-in-out;
             transform: translate3d(200%, 0, 0) rotate(35deg);
         }
+
+        fieldset input{
+            width: 600px;
+        }
+    }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+        height: 100%;
+        justify-content: space-evenly;
+
+        h2{
+            font-size: 8vw;
+        }
+
+        input, select{
+            width: 85%;
+            font-size: 5vw;
+            background-color: white;
+        }
+
+        input{
+            height: 9vw;
+            padding: 2%;
+
+        }
+        
+        select{
+            padding: 2%;
+            height: 33vw;
+        }
+
+        button{
+            width: 50%;
+            font-size: 5vw;
+        }
     }
 `
-
 class SerUmNinja extends React.Component {
     state = {
         inputTitulo: "",
@@ -190,12 +226,15 @@ class SerUmNinja extends React.Component {
                         <option>Pix</option>
                         <option>PayPal</option>
                     </select>
-                    <input
-                        placeholder="Prazo de serviço"
-                        value={this.state.inputData}
-                        onChange={this.salvarData}
-                        min={this.dataLimite()}
-                        type="date" />
+                        <label>
+                            Prazo de serviço:
+                            <input
+                            value={this.state.inputData}
+                            onChange={this.salvarData}
+                            min={this.dataLimite()}
+                            type="date"/>
+                        </label>
+                        
                     <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
                 </Cadastro>
             </Container>

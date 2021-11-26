@@ -27,6 +27,34 @@ const ContainerCard = styled.div`
             fill: black;
         }
     }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 90%;
+        height: 25vh;
+        margin-bottom: 10%;
+
+        h3{
+            font-size: 10vw;
+        }
+
+        img{
+            width: 15vw;
+        }
+
+        p{
+            font-size: 6vw;
+        }
+
+        strong{
+            margin-left: 12%;
+            font-size: 7vw;
+        }
+
+        button{
+            font-size: 5vw;
+            background-color: white;
+        }
+    }
 `
 
 const ContainerBotoes = styled.div`
