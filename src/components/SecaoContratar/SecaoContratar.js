@@ -2,6 +2,7 @@ import React from "react";
 import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
+import Carregar from '../Carregar';
 
 const Pai = styled.div`
   background: url('https://images.unsplash.com/photo-1602104623433-2dd8b8b35548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
@@ -138,6 +139,8 @@ export default class SecaoContratar extends React.Component {
             <option value="dueDate">Prazo</option>
           </select>
         </AreaFiltros>
+        {this.props.anuncios.length
+        > 0? '': <Carregar/>}
         <AreaCard>
           {servicos}
           
