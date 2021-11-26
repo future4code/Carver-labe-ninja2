@@ -3,20 +3,26 @@ import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
 
+const Pai = styled.div`
+  background: url('https://images.unsplash.com/photo-1602104623433-2dd8b8b35548?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
+`
+
+
 const AreaFiltros = styled.div`
-  width: 100%;
   display: grid;
   grid-template-columns: repeat(4, 48vh);
   justify-content: space-evenly;
-  margin-top: 1%;
 
-  input {
-    width: 100%;
+  input, select {
+    height: 2vw;
+    padding: 0.2vw;
+    border:none;
+    border-bottom: 2px solid black;
+    outline: none;
+    margin-top: 10px;
   }
 
-  select {
-    width: 100%;
-  }
+
 `;
 const AreaCard = styled.div`
   margin-top: 2%;
@@ -27,13 +33,6 @@ const AreaCard = styled.div`
   justify-content: space-evenly;
 `;
 
-// const Card = styled.div`
-//   width: 100%;
-//   height: 20vh;
-//   border: 1px solid black;
-//   grid-auto-flow: row;
-//   border: 1px solid blue;
-// `;
 
 export default class SecaoContratar extends React.Component {
   state = {
@@ -93,7 +92,7 @@ export default class SecaoContratar extends React.Component {
 
     return (
 
-      <div>
+      <Pai>
         <AreaFiltros>
           <input type="number" value={this.state.precoMin} onChange={this.filtroPrecoMin} placeholder="Valor Mínimo" />
           <input type="number" value={this.state.precoMax} onChange={this.filtroPrecoMax} placeholder="Valor Máximo" />
@@ -113,7 +112,7 @@ export default class SecaoContratar extends React.Component {
           {servicos}
           
         </AreaCard>
-      </div>
+      </Pai>
     );
   }
 }
