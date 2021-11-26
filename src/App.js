@@ -121,12 +121,22 @@ class App extends React.Component {
 	}
 
 	componentDidMount = () => {
-		this.carregarJobs()
-	}
-
-	componentDidUpdate = () => {
-		this.carregarJobs()
-	}
+        this.carregarJobs()
+        this.buscarLocalStorage()
+    }
+    componentDidUpdate = () => {
+        this.carregarJobs()
+         this.salvarLocalStorage();
+    }
+    salvarLocalStorage = () => {
+        localStorage.setItem("carrinho", JSON.stringify(this.state.carrinho))
+      }
+      buscarLocalStorage = () => {
+        const carrinhoLocalStorage = localStorage.getItem("carrinho")
+        const carrinhoParse = JSON.parse(carrinhoLocalStorage)
+        this.setState({ carrinho: carrinhoParse || { valorTotal: 0, produtos: []}
+        })
+      }
 
 	addCarrinho = (servico) => {
 		let verificaExistencia;
