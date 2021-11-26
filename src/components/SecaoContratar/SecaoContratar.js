@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
+import Carregar from '../Carregar';
 
 const Pai = styled.div`
   background: url('https://images.pexels.com/photos/5871215/pexels-photo-5871215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=300') repeat; 
@@ -137,6 +138,8 @@ export default class SecaoContratar extends React.Component {
             <option value="dueDate">Prazo</option>
           </select>
         </AreaFiltros>
+        {this.props.anuncios.length
+        > 0? '': <Carregar/>}
         <AreaCard>
           {servicos}
         </AreaCard>
