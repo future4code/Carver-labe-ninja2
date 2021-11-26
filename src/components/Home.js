@@ -22,7 +22,6 @@ const DivMain = styled.div`
     h1{
         font-size: 7vw;
         padding: 1vw;
-        /* border: 3px solid black; */
         text-decoration: underline;
     }
 

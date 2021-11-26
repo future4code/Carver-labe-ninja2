@@ -168,11 +168,16 @@ class SerUmNinja extends React.Component {
     }
 
     cadastrarServico = () => {
-        if (this.state.inputTitulo.length < 1 || this.state.inputDescricao.length < 1) { alert(`Insira um nome e uma descrição.`) }
-        if (this.state.inputPreco <= 0) { alert(`Insira um preço acima de R$ 0.`) }
-        else if (this.state.inputPagamento.length === 0) { alert(`Escolhe ao menos uma forma de pagamento.`) }
-        else if (!this.compararData()) { alert(`A data limite para a realização do serviço deve ser maior do que a data atual.`) }
-        else {
+        if (this.state.inputTitulo.length < 1 || this.state.inputDescricao.length < 1) {
+            alert(`Insira um nome e uma descrição.`)
+        }
+        if (this.state.inputPreco <= 0) {
+            alert(`Insira um preço acima de R$ 0.`)
+        }else if (this.state.inputPagamento.length === 0) {
+            alert(`Escolhe ao menos uma forma de pagamento.`)
+        }else if (!this.compararData()) {
+            alert(`A data limite para a realização do serviço deve ser maior do que a data atual.`)
+        }else {
             const novoServico = {
                 "title": this.state.inputTitulo,
                 "description": this.state.inputDescricao,
@@ -226,15 +231,15 @@ class SerUmNinja extends React.Component {
                         <option>Pix</option>
                         <option>PayPal</option>
                     </select>
-                        <label>
-                            Prazo de serviço:
-                            <input
+                    <label>
+                        Prazo de serviço:
+                        <input
                             value={this.state.inputData}
                             onChange={this.salvarData}
                             min={this.dataLimite()}
-                            type="date"/>
-                        </label>
-                        
+                            type="date" />
+                    </label>
+
                     <button onClick={this.cadastrarServico}>Cadastrar Serviço</button>
                 </Cadastro>
             </Container>

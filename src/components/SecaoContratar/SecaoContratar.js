@@ -1,5 +1,4 @@
 import React from "react";
-import { findRenderedDOMComponentWithClass } from "react-dom/test-utils";
 import styled from "styled-components";
 import CardQueroContratar from "../CardQueroContratar";
 

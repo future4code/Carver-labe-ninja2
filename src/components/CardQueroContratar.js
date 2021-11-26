@@ -22,6 +22,7 @@ const ContainerCard = styled.div`
 
     img{
         width: 2.3vw;
+        cursor: pointer;
 
         &:hover{
             fill: black;
@@ -90,9 +91,6 @@ class CardQueroContratar extends React.Component {
                 <p>{this.organizarData()} <strong>R$ {this.props.servico.price}</strong></p>
                 <ContainerBotoes>
                     <button onClick={() => this.props.invocarTela("detalhes",this.props.servico)}>Ver detalhes</button>
-                    {/* <button 
-                    onClick= {()=>this.props.addCarrinho(this.props.servico.id)}
-                    >Adicionar no carrinho</button> */}
                     <img src={CarrinhoIcon} onClick= {()=>this.props.addCarrinho(this.props.servico.id)}  alt="icone carrinho"/>
                 </ContainerBotoes>
             </ContainerCard>

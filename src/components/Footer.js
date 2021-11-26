@@ -1,6 +1,5 @@
 import React from 'react'
 import styled from 'styled-components'
-import CarrinhoIcon from '../Util/Imagem/carrinho.svg'
 
 const Pai = styled.footer`
     display: flex;

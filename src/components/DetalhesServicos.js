@@ -2,7 +2,6 @@ import React from "react";
 import styled from "styled-components";
 
 const ContainerDetalhes = styled.div`
-    /* border: 1px solid red; */
     display: flex;
     align-items: center;
     justify-content: center;
@@ -45,7 +44,6 @@ const ContainerTitulo = styled.div`
 `
 
 const Descricao = styled.div`
-    /* border: 1px solid green; */
     font-size: 1.1vw;
     width: 80%;
 `
@@ -54,7 +52,6 @@ const ContainerBotoes = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-    /* border: 1px solid black; */
     height: 30%;
     margin-top: 3vh;
     
@@ -119,10 +116,8 @@ class DetalhesServicos extends React.Component {
                 <ContainerInfoServico>
                     <ContainerTitulo>
                         <h2>{this.props.servico.title}</h2>
-                        {/* <h2>Título do serviço</h2> */}
                         <Descricao>
                         <p>{this.props.servico.description}</p>
-                            {/* <p>Descrição do Serviço aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa</p> */}
                         </Descricao>
                     </ContainerTitulo>
                     {/* <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p> */}
