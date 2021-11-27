@@ -6,8 +6,12 @@ import Carregar from '../Carregar';
 const Pai = styled.div`
   background: url('https://images.pexels.com/photos/5871215/pexels-photo-5871215.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=300&w=300') repeat; 
 
-  @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+  @media screen and (max-device-width : 480px){
     background-size: cover;
+  }
+
+  @media screen and (max-device-width : 800px){
+    margin-bottom: 5%;
   }
 `
 
@@ -44,6 +48,16 @@ const AreaFiltros = styled.div`
     }
   }
 
+  @media screen and (max-device-width : 800px){
+    grid-template-columns: repeat(4, 1fr);
+
+    input, select{
+      height: 3vw;
+      width: 95%;
+      margin: 4% auto;
+
+    }
+  }
 
 `;
   const AreaCard = styled.div`
@@ -61,6 +75,12 @@ const AreaFiltros = styled.div`
     justify-content: center;
     align-items: center;
     height: 100%;
+    padding-bottom: 1vh;
+  }
+
+  @media screen and (max-device-width : 800px){
+    grid-template-columns: repeat(3, 1fr);
+    margin: 0;
   }
 `;
 

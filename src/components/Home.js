@@ -7,9 +7,11 @@ const Main = styled.div`
     height: 89vh;
     background: url('https://images.unsplash.com/photo-1513754934927-4606bafe9858?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=580&q=80');
 
-    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+    @media screen and (max-device-width : 480px){
         background-size: cover;
+        height: 83vh;
     }
+    
     
 `
 
@@ -52,6 +54,14 @@ const InteriorMain = styled.div`
 
         h2{
             font-size: 6vw;
+            text-align: center;
+        }
+    }
+
+    @media screen and (max-device-width : 800px){
+        h2{
+            font-size: 2.5vw;
+            text-align: center;
         }
     }
 `
@@ -103,6 +113,12 @@ const Buttons = styled.div`
         button{
             width: 100%;
             font-size: 5vw;
+        }
+    }
+
+    @media screen and (max-device-width : 800px) {
+        button{
+            padding: 2%;
         }
     }
 
