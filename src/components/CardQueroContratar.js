@@ -56,6 +56,18 @@ const ContainerCard = styled.div`
             background-color: white;
         }
     }
+
+    @media screen and (max-device-width : 800px){
+        width: 90%;
+
+        img{
+            width: 4.3vh;
+        }
+
+        p{
+            font-size: 1.8vw;
+        }
+    }
 `
 
 const ContainerBotoes = styled.div`

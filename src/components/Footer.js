@@ -23,6 +23,11 @@ const Pai = styled.footer`
     p{
         cursor: pointer;
     }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        position: relative;
+        height: 6.5vh;
+    }
 `
 export default class Footer extends React.Component {
 

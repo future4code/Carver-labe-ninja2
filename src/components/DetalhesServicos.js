@@ -8,6 +8,10 @@ const ContainerDetalhes = styled.div`
     width: 100%;
     height: 89vh;
     padding-bottom: 11vh;
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        height: 83.5vh;
+    }
 `
 
 const ContainerInfoServico = styled.div`
@@ -22,10 +26,27 @@ const ContainerInfoServico = styled.div`
     font-weight: bold;
     
     p {
-    margin: 0.7vh;
-    text-align: center;
-    word-wrap: break-word;
-}
+        margin: 0.7vh;
+        text-align: center;
+        word-wrap: break-word;
+    }
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+        height: 83.5vh;
+        margin-top: 11vh;
+        font-weight: 500;
+
+        p{
+            font-size: 3vh;
+            margin: 0;
+        }
+    }
+
+    @media screen and (max-device-width : 800px) {
+        height: 50vw;
+        text-align: center;
+    }
+
 `
 
 const ContainerTitulo = styled.div`
@@ -41,11 +62,37 @@ const ContainerTitulo = styled.div`
         font-size: 4vh;
         margin-bottom: 2vh;
     }
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        margin: 12vh 0;
+        text-align: center;
+        
+        h3{
+            font-size: 6vh;
+        };
+    }
+
+    @media screen and (max-device-width : 800px){
+        margin-top: 10%;
+        h3{
+            font-size: 5vh;
+        }
+    }
 `
 
 const Descricao = styled.div`
     font-size: 1.1vw;
     width: 80%;
+    text-align: center;
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        font-size: 3vh;
+    }
+
+    @media screen and (max-device-width : 800px){
+        font-size: 3vh;
+        font-weight: 500;
+        margin-bottom: 5%;
+    }
 `
 
 const ContainerBotoes = styled.div`
@@ -89,7 +136,23 @@ const ContainerBotoes = styled.div`
             transform: translate3d(200%, 0, 0) rotate(35deg);
         }
     }
-    `
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+       button{
+           height: auto;
+           font-size: 3vh;
+       }
+    }
+
+    @media screen and (max-device-width : 800px){
+        margin-top: -2%;
+        
+        button{
+            height: auto;
+            width: 100%;
+            font-size: 3vh;
+        }
+    }
+`
 
 class DetalhesServicos extends React.Component {
 
@@ -121,6 +184,7 @@ class DetalhesServicos extends React.Component {
                         </Descricao>
                     </ContainerTitulo>
                     <p>Aceita: {this.props.servico.paymentMethods.join([', '])}.</p>
+                    {/* <p>Aceita:</p> */}
                     <p>Até {this.organizarData()} por <strong>R$ {this.props.servico.price}</strong>.</p>
 
                     <ContainerBotoes>
