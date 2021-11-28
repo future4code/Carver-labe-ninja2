@@ -7,6 +7,11 @@ const Container = styled.div`
     align-items: center;
     padding-bottom: 11vh;
     height: 89vh;
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+        height: 82vh;
+    }
 `
 
 const Cadastro = styled.div`
@@ -27,6 +32,17 @@ const Cadastro = styled.div`
     li{
         list-style: none;
     }
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 100%;
+        height: 82vh;
+        margin-top: 11vh;
+
+        h2{
+            font-size: 6vh;
+        }
+    }
+
     
 `
 const Slogan = styled.div`
@@ -34,6 +50,10 @@ const Slogan = styled.div`
     width: 80%;
     font-size: 2vw;
     color: grey;
+
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        font-size: 3vh;
+    }
 `
 class Sobrenos extends React.Component {
 
