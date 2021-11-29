@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-
+import LogoIcon from '../Util/Imagem/logo.svg'
 const Main = styled.div`
     display: flex;
     justify-content: center;
@@ -22,7 +22,7 @@ const DivMain = styled.div`
     width: 60%;
 
     h1{
-        font-size: 7vw;
+        font-size: 6vw;
         padding: 1vw;
         text-decoration: underline;
     }
@@ -32,6 +32,13 @@ const DivMain = styled.div`
         h1{
             font-size: 12vw;
         }
+    }
+    @media screen and (max-device-width : 800px){
+        width: 100%;
+        h1{
+            font-size: 12vw;
+        }
+ 
     }
 `
 
@@ -59,9 +66,32 @@ const InteriorMain = styled.div`
     }
 
     @media screen and (max-device-width : 800px){
+        width: 80%;
         h2{
-            font-size: 2.5vw;
+            font-size: 6vw;
             text-align: center;
+        }
+ 
+    }
+`
+const DivTitulo=styled.div`
+    display: flex;
+    img{
+        width: 5vw;
+    }
+    @media screen and (min-device-width : 320px) and (max-device-width : 480px){
+        width: 95%;
+        img{
+            width: 10vw;
+        }
+    }  
+    @media screen and (max-device-width : 800px){
+        h1{
+            font-size: 10vw;
+            text-align: center;
+        }
+        img{
+            width: 8vw;
         }
     }
 `
@@ -69,7 +99,7 @@ const InteriorMain = styled.div`
 const Buttons = styled.div`
     display: flex;
     width: 90%;
-    height: 3.5vw;
+    height: 3vw;
     
     button{
         margin: 0 auto;
@@ -116,8 +146,11 @@ const Buttons = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px) {
+    @media screen and (min-device-width : 700px) and (max-device-width: 1024px) {
+      
         button{
+            width: 40%;
+            height: 8vw;
             padding: 2%;
         }
     }
@@ -132,7 +165,10 @@ export default class Home extends React.Component {
                     {/* <Imagem /> */}
                     <DivMain>
                         <InteriorMain>
+                            <DivTitulo>
+                            <img src={LogoIcon}/>
                             <h1>DeimeLimões</h1>
+                            </DivTitulo>
                             <h2>Se a vida te der limões, faça limonada.</h2>
                             <Buttons>
                                 <button onClick={() => this.props.invocarTela("queroSerUmNinja")}>Quero ser um limão</button>
