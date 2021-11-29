@@ -117,7 +117,7 @@ const Cadastro = styled.div`
     }
 
     label{
-        margin-bottom: -7%;
+        margin-bottom: 0;
         margin-left: -55%;
     }
 
@@ -274,7 +274,7 @@ class SerUmNinja extends React.Component {
             <option>Pix</option>
             <option>PayPal</option>
           </select>
-          <label>Prazo de serviço:</label>
+          <label>Disponível até:</label>
           <input
             value={this.state.inputData}
             onChange={this.salvarData}
