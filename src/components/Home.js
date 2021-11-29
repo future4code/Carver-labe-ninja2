@@ -58,7 +58,7 @@ const InteriorMain = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px){
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         h2{
             font-size: 2.5vw;
             text-align: center;
@@ -116,7 +116,7 @@ const Buttons = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px) {
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
         button{
             padding: 2%;
         }

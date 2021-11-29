@@ -127,7 +127,7 @@ const Cadastro = styled.div`
     }
   }
 
-  @media screen and (max-device-width : 800px){
+  @media screen and (min-device-width : 481px) and (max-device-width : 800px){
       width: 60%;
       height: 70vh;
       margin: 2%;

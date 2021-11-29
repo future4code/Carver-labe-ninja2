@@ -93,7 +93,7 @@ const Buttons = styled.div`
     }
   }
 
-  @media screen and (max-device-width : 800px) {
+  @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
     width: 40%;
   }
 

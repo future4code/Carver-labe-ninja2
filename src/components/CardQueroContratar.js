@@ -35,7 +35,7 @@ const ContainerCard = styled.div`
         margin-bottom: 10%;
 
         h3{
-            font-size: 10vw;
+            font-size: 8vw;
         }
 
         img{
@@ -57,7 +57,7 @@ const ContainerCard = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px){
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         width: 90%;
 
         img{

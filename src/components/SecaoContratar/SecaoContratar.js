@@ -10,7 +10,7 @@ const Pai = styled.div`
     background-size: cover;
   }
 
-  @media screen and (max-device-width : 800px){
+  @media screen and (min-device-width : 481px) and (max-device-width : 800px){
     margin-bottom: 5%;
   }
 `
@@ -48,7 +48,7 @@ const AreaFiltros = styled.div`
     }
   }
 
-  @media screen and (max-device-width : 800px){
+  @media screen and (min-device-width : 481px) and (max-device-width : 800px){
     grid-template-columns: repeat(4, 1fr);
 
     input, select{
@@ -78,7 +78,7 @@ const AreaFiltros = styled.div`
     padding-bottom: 1vh;
   }
 
-  @media screen and (max-device-width : 800px){
+  @media screen and (min-device-width : 481px) and (max-device-width : 800px){
     grid-template-columns: repeat(3, 1fr);
     margin: 0;
   }
