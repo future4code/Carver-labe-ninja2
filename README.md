@@ -7,8 +7,8 @@
 - Projeto de fixação desenvolvido por alunos da Labenu (Turma Carver).
 
 ### Link Surge
- https://beautiful-coat.surge.sh/
-
+ woozy-cattle.surge.sh
+ 
 ### Imagens
 ![image](https://cdn.discordapp.com/attachments/913923827623415859/913923965850878032/unknown.png)
 ![image](https://cdn.discordapp.com/attachments/913923827623415859/913924147560718336/unknown.png)
