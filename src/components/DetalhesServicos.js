@@ -42,7 +42,7 @@ const ContainerInfoServico = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px) {
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
         height: 50vw;
         text-align: center;
     }
@@ -71,7 +71,7 @@ const ContainerTitulo = styled.div`
         };
     }
 
-    @media screen and (max-device-width : 800px){
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         margin-top: 10%;
         h3{
             font-size: 5vh;
@@ -88,7 +88,7 @@ const Descricao = styled.div`
         font-size: 3vh;
     }
 
-    @media screen and (max-device-width : 800px){
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         font-size: 3vh;
         font-weight: 500;
         margin-bottom: 5%;
@@ -143,7 +143,7 @@ const ContainerBotoes = styled.div`
        }
     }
 
-    @media screen and (max-device-width : 800px){
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         margin-top: -2%;
         
         button{

@@ -65,7 +65,9 @@ const InteriorMain = styled.div`
         }
     }
 
-    @media screen and (max-device-width : 800px){
+
+
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px){
         width: 80%;
         h2{
             font-size: 6vw;
@@ -146,8 +148,9 @@ const Buttons = styled.div`
         }
     }
 
-    @media screen and (min-device-width : 700px) and (max-device-width: 1024px) {
-      
+
+    @media screen and (min-device-width : 481px) and (max-device-width : 800px) {
+
         button{
             width: 40%;
             height: 8vw;
