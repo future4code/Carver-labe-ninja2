@@ -7,7 +7,7 @@
 - Projeto de fixação desenvolvido por alunos da Labenu (Turma Carver).
 
 ### Link Surge
- https://scintillating-pin.surge.sh/
+https://amazing-control.surge.sh/
  
 ### Imagens
 ![image](https://cdn.discordapp.com/attachments/913923827623415859/913923965850878032/unknown.png)
